@@ -204,6 +204,7 @@
     <Content Include="app\img\phones\t-mobile-mytouch-4g.4.jpg" />
     <Content Include="app\img\phones\t-mobile-mytouch-4g.5.jpg" />
     <Content Include="app\img\user.jpg" />
+    <Content Include="app\img\wallpaper.jpg" />
     <Content Include="app\index.html" />
     <Content Include="app\templates\contact.html" />
     <Content Include="app\templates\forms\partial-form-material.html" />
