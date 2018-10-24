@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <title>My Phone List</title>
+    <link rel="icon" type="image/png" href="/app/img/favicon.png" sizes="64x64">
+    <!-- CSS (load bootstrap) -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css" />
+    <link rel="stylesheet" href="app.animations.css" />
+    <link rel="stylesheet" href="/app.css" />
+    <style>
+        .navbar {
+            border-radius: 0;
+        }
+    </style>
+
+    <!-- JS (load angular, ui-router, and our custom js file) -->
+    
+    <script src="../scripts/angular.js"></script>
+    <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+    <script src="../app.js"></script>
+    <script src="core/checkmark.filter.js"></script>
+
+
+    <!-- Angular Material requires Angular.js Libraries -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+
+    <script type="text/javascript">
+        function ocultar(){
+            document.getElementById('show').style.display = 'none';
+        }
+        function mostrar() {
+            document.getElementById('show').style.display = 'block';
+        }
+        function ocultar() {
+            document.getElementById('showfilter').style.display = 'none';
+        }
+        function mostrar() {
+            document.getElementById('showfilter').style.display = 'block';
+        }
+    </script>
+
+</head>
+
+<!-- apply our angular app to our site -->
+<body ng-app="routerApp">
+
+    <!-- NAVIGATION -->
+   <!--<md-nav-bar md-selected-nav-item="currentNavItem" class="nav">
+        <md-nav-item md-nav-sref="phone">
+            Telefons
+        </md-nav-item>
+        <md-nav-item md-nav-sref="form">Formulari</md-nav-item>
+        <md-nav-item md-nav-sref="formng">Formulari NG</md-nav-item>
+        <md-nav-item md-nav-sref="formMaterial">
+            Formulari Material
+        </md-nav-item>
+    </md-nav-bar>-->
+
+    <div ng-controller="NavController2 as demo" layout="right" ng-cloak>
+        <md-content class="md-padding" layout="column">
+            <div class="lock-size" layout="row" layout-align="center center">
+                <md-fab-speed-dial md-open="demo.isOpen" md-direction="{{demo.selectedDirection}}"
+                                   ng-class="demo.selectedMode">
+                    <md-fab-trigger>
+                        <md-button aria-label="menu" class="md-fab md-warn">
+                            <md-icon md-svg-src="img/icons/menu.svg"></md-icon>
+                        </md-button>
+                    </md-fab-trigger>
+
+                    <md-fab-actions>
+                        <a ui-sref="home">
+                            <md-button class="md-fab md-raised md-mini">
+                                <md-icon title="Home" md-svg-src="img/icons/home.svg">
+                                </md-icon>
+                            </md-button>
+                        </a>
+                        <a ui-sref="phone">
+                            <md-button class="md-fab md-raised md-mini">
+                                <md-icon title="Telefons" md-svg-src="img/icons/mobile-devices.svg">
+                        </md-icon>
+                        </md-button></a>
+                        <a ui-sref="form">
+                            <md-button class="md-fab md-raised md-mini">
+                                <md-icon title="Formulari" md-svg-src="img/icons/compose.svg"></md-icon>
+                            </md-button></a>
+                        <a ui-sref="formng">
+                            <md-button class="md-fab md-raised md-mini">
+                                <md-icon title="Formulari amb NMessages" md-svg-src="img/icons/check-form.svg"></md-icon>
+                            </md-button></a>
+                        <a ui-sref="formMaterial">
+                            <md-button class="md-fab md-raised md-mini">
+                                <md-icon title="Formulari Material" md-svg-src="img/icons/clipboard.svg"></md-icon>
+                            </md-button>
+                        </a>
+                        <a ui-sref="contact">
+                            <md-button class="md-fab md-raised md-mini">
+                                <md-icon title="Contacte" md-svg-src="img/icons/user.svg"></md-icon>
+                            </md-button>
+                        </a>
+                        <a ui-sref="help">
+                            <md-button class="md-fab md-raised md-mini">
+                                <md-icon title="Ajuda" md-svg-src="img/icons/question.svg"></md-icon>
+                            </md-button>
+                        </a>
+                        </md-fab-actions>
+                </md-fab-speed-dial>
+            </div>
+        </md-content>
+    </div>
+    
+    <div class="container">
+
+        <div ui-view></div>
+
+    </div>
+</body>
+</html>

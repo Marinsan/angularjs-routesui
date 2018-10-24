@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C8D0F11E-3404-4D89-908F-1E5B9A84C53A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Routes</RootNamespace>
+    <AssemblyName>Routes</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.css" />
+    <Content Include="app\app.animations.css" />
+    <Content Include="app\core\checkmark.filter.js" />
+    <Content Include="app\core\checkmark.filter.spec.js" />
+    <Content Include="app\img\favicon.png" />
+    <Content Include="app\img\icons\at-symbol.svg" />
+    <Content Include="app\img\icons\check-form.svg" />
+    <Content Include="app\img\icons\clipboard.svg" />
+    <Content Include="app\img\icons\cm.png" />
+    <Content Include="app\img\icons\compose.svg" />
+    <Content Include="app\img\icons\facebook.svg" />
+    <Content Include="app\img\icons\filter.svg" />
+    <Content Include="app\img\icons\github.svg" />
+    <Content Include="app\img\icons\google.svg" />
+    <Content Include="app\img\icons\home.svg" />
+    <Content Include="app\img\icons\instagram.svg" />
+    <Content Include="app\img\icons\logo.jpg" />
+    <Content Include="app\img\icons\menu.svg" />
+    <Content Include="app\img\icons\mobile-devices.svg" />
+    <Content Include="app\img\icons\phone.svg" />
+    <Content Include="app\img\icons\question.svg" />
+    <Content Include="app\img\icons\send.svg" />
+    <Content Include="app\img\icons\smartphone.png" />
+    <Content Include="app\img\icons\twitter.svg" />
+    <Content Include="app\img\icons\user-solid-circle.svg" />
+    <Content Include="app\img\icons\user.svg" />
+    <Content Include="app\img\icons\view-hide.svg" />
+    <Content Include="app\img\icons\view-show.svg" />
+    <Content Include="app\img\logo.jpg" />
+    <Content Include="app\img\phones\dell-streak-7.0.jpg" />
+    <Content Include="app\img\phones\dell-streak-7.1.jpg" />
+    <Content Include="app\img\phones\dell-streak-7.2.jpg" />
+    <Content Include="app\img\phones\dell-streak-7.3.jpg" />
+    <Content Include="app\img\phones\dell-streak-7.4.jpg" />
+    <Content Include="app\img\phones\dell-venue.0.jpg" />
+    <Content Include="app\img\phones\dell-venue.1.jpg" />
+    <Content Include="app\img\phones\dell-venue.2.jpg" />
+    <Content Include="app\img\phones\dell-venue.3.jpg" />
+    <Content Include="app\img\phones\dell-venue.4.jpg" />
+    <Content Include="app\img\phones\dell-venue.5.jpg" />
+    <Content Include="app\img\phones\droid-2-global-by-motorola.0.jpg" />
+    <Content Include="app\img\phones\droid-2-global-by-motorola.1.jpg" />
+    <Content Include="app\img\phones\droid-2-global-by-motorola.2.jpg" />
+    <Content Include="app\img\phones\droid-pro-by-motorola.0.jpg" />
+    <Content Include="app\img\phones\droid-pro-by-motorola.1.jpg" />
+    <Content Include="app\img\phones\lg-axis.0.jpg" />
+    <Content Include="app\img\phones\lg-axis.1.jpg" />
+    <Content Include="app\img\phones\lg-axis.2.jpg" />
+    <Content Include="app\img\phones\logo.jpg" />
+    <Content Include="app\img\phones\motorola-atrix-4g.0.jpg" />
+    <Content Include="app\img\phones\motorola-atrix-4g.1.jpg" />
+    <Content Include="app\img\phones\motorola-atrix-4g.2.jpg" />
+    <Content Include="app\img\phones\motorola-atrix-4g.3.jpg" />
+    <Content Include="app\img\phones\motorola-bravo-with-motoblur.0.jpg" />
+    <Content Include="app\img\phones\motorola-bravo-with-motoblur.1.jpg" />
+    <Content Include="app\img\phones\motorola-bravo-with-motoblur.2.jpg" />
+    <Content Include="app\img\phones\motorola-charm-with-motoblur.0.jpg" />
+    <Content Include="app\img\phones\motorola-charm-with-motoblur.1.jpg" />
+    <Content Include="app\img\phones\motorola-charm-with-motoblur.2.jpg" />
+    <Content Include="app\img\phones\motorola-defy-with-motoblur.0.jpg" />
+    <Content Include="app\img\phones\motorola-defy-with-motoblur.1.jpg" />
+    <Content Include="app\img\phones\motorola-defy-with-motoblur.2.jpg" />
+    <Content Include="app\img\phones\motorola-xoom-with-wi-fi.0.jpg" />
+    <Content Include="app\img\phones\motorola-xoom-with-wi-fi.1.jpg" />
+    <Content Include="app\img\phones\motorola-xoom-with-wi-fi.2.jpg" />
+    <Content Include="app\img\phones\motorola-xoom-with-wi-fi.3.jpg" />
+    <Content Include="app\img\phones\motorola-xoom-with-wi-fi.4.jpg" />
+    <Content Include="app\img\phones\motorola-xoom-with-wi-fi.5.jpg" />
+    <Content Include="app\img\phones\motorola-xoom.0.jpg" />
+    <Content Include="app\img\phones\motorola-xoom.1.jpg" />
+    <Content Include="app\img\phones\motorola-xoom.2.jpg" />
+    <Content Include="app\img\phones\nexus-s.0.jpg" />
+    <Content Include="app\img\phones\nexus-s.1.jpg" />
+    <Content Include="app\img\phones\nexus-s.2.jpg" />
+    <Content Include="app\img\phones\nexus-s.3.jpg" />
+    <Content Include="app\img\phones\samsung-galaxy-tab.0.jpg" />
+    <Content Include="app\img\phones\samsung-galaxy-tab.1.jpg" />
+    <Content Include="app\img\phones\samsung-galaxy-tab.2.jpg" />
+    <Content Include="app\img\phones\samsung-galaxy-tab.3.jpg" />
+    <Content Include="app\img\phones\samsung-galaxy-tab.4.jpg" />
+    <Content Include="app\img\phones\samsung-galaxy-tab.5.jpg" />
+    <Content Include="app\img\phones\samsung-galaxy-tab.6.jpg" />
+    <Content Include="app\img\phones\samsung-gem.0.jpg" />
+    <Content Include="app\img\phones\samsung-gem.1.jpg" />
+    <Content Include="app\img\phones\samsung-gem.2.jpg" />
+    <Content Include="app\img\phones\samsung-mesmerize-a-galaxy-s-phone.0.jpg" />
+    <Content Include="app\img\phones\samsung-mesmerize-a-galaxy-s-phone.1.jpg" />
+    <Content Include="app\img\phones\samsung-mesmerize-a-galaxy-s-phone.2.jpg" />
+    <Content Include="app\img\phones\samsung-mesmerize-a-galaxy-s-phone.3.jpg" />
+    <Content Include="app\img\phones\samsung-showcase-a-galaxy-s-phone.0.jpg" />
+    <Content Include="app\img\phones\samsung-showcase-a-galaxy-s-phone.1.jpg" />
+    <Content Include="app\img\phones\samsung-showcase-a-galaxy-s-phone.2.jpg" />
+    <Content Include="app\img\phones\samsung-transform.0.jpg" />
+    <Content Include="app\img\phones\samsung-transform.1.jpg" />
+    <Content Include="app\img\phones\samsung-transform.2.jpg" />
+    <Content Include="app\img\phones\samsung-transform.3.jpg" />
+    <Content Include="app\img\phones\samsung-transform.4.jpg" />
+    <Content Include="app\img\phones\sanyo-zio.0.jpg" />
+    <Content Include="app\img\phones\sanyo-zio.1.jpg" />
+    <Content Include="app\img\phones\sanyo-zio.2.jpg" />
+    <Content Include="app\img\phones\t-mobile-g2.0.jpg" />
+    <Content Include="app\img\phones\t-mobile-g2.1.jpg" />
+    <Content Include="app\img\phones\t-mobile-g2.2.jpg" />
+    <Content Include="app\img\phones\t-mobile-mytouch-4g.0.jpg" />
+    <Content Include="app\img\phones\t-mobile-mytouch-4g.1.jpg" />
+    <Content Include="app\img\phones\t-mobile-mytouch-4g.2.jpg" />
+    <Content Include="app\img\phones\t-mobile-mytouch-4g.3.jpg" />
+    <Content Include="app\img\phones\t-mobile-mytouch-4g.4.jpg" />
+    <Content Include="app\img\phones\t-mobile-mytouch-4g.5.jpg" />
+    <Content Include="app\img\user.jpg" />
+    <Content Include="app\index.html" />
+    <Content Include="app\templates\contact.html" />
+    <Content Include="app\templates\forms\partial-form-material.html" />
+    <Content Include="app\templates\forms\partial-form-ngmessages.html" />
+    <Content Include="app\templates\forms\partial-form.html" />
+    <Content Include="app\templates\help.html" />
+    <Content Include="app\templates\home.html" />
+    <Content Include="app\templates\toast-template.html" />
+    <Content Include="Content\angular-material.css" />
+    <Content Include="Content\angular-material.layout-attributes.css" />
+    <Content Include="Content\angular-material.layout-attributes.min.css" />
+    <Content Include="Content\angular-material.layouts.css" />
+    <Content Include="Content\angular-material.layouts.ie_fixes.css" />
+    <Content Include="Content\angular-material.layouts.min.css" />
+    <Content Include="Content\angular-material.min.css" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="app\templates\phones\dell-streak-7.json" />
+    <Content Include="app\templates\phones\dell-venue.json" />
+    <Content Include="app\templates\phones\droid-2-global-by-motorola.json" />
+    <Content Include="app\templates\phones\droid-pro-by-motorola.json" />
+    <Content Include="app\templates\phones\lg-axis.json" />
+    <Content Include="app\templates\phones\motorola-atrix-4g.json" />
+    <Content Include="app\templates\phones\motorola-bravo-with-motoblur.json" />
+    <Content Include="app\templates\phones\motorola-charm-with-motoblur.json" />
+    <Content Include="app\templates\phones\motorola-defy-with-motoblur.json" />
+    <Content Include="app\templates\phones\motorola-xoom-with-wi-fi.json" />
+    <Content Include="app\templates\phones\motorola-xoom.json" />
+    <Content Include="app\templates\phones\nexus-s.json" />
+    <Content Include="app\templates\phones\phones.json" />
+    <Content Include="app\templates\phones\samsung-galaxy-tab.json" />
+    <Content Include="app\templates\phones\samsung-gem.json" />
+    <Content Include="app\templates\phones\samsung-mesmerize-a-galaxy-s-phone.json" />
+    <Content Include="app\templates\phones\samsung-showcase-a-galaxy-s-phone.json" />
+    <Content Include="app\templates\phones\samsung-transform.json" />
+    <Content Include="app\templates\phones\sanyo-zio.json" />
+    <Content Include="app\templates\phones\t-mobile-g2.json" />
+    <Content Include="app\templates\phones\t-mobile-mytouch-4g.json" />
+    <Content Include="scripts\angular-animate.js" />
+    <Content Include="scripts\angular-animate.min.js" />
+    <Content Include="scripts\angular-animate.min.js.map" />
+    <Content Include="app\app.animations.js" />
+    <Content Include="scripts\angular-aria.js" />
+    <Content Include="scripts\angular-aria.min.js" />
+    <Content Include="scripts\angular-material-mocks.js" />
+    <Content Include="scripts\angular-material.js" />
+    <Content Include="scripts\angular-material.min.js" />
+    <Content Include="scripts\angular-mocks.js" />
+    <Content Include="scripts\angular.js" />
+    <Content Include="scripts\angular.min.js" />
+    <Content Include="scripts\angular.min.js.map" />
+    <Content Include="scripts\angular-aria.min.js.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.js" />
+    <Content Include="app\templates\phone-detail\partial-phone-detail.html" />
+    <Content Include="app\templates\phone-list\partial-phone-list.html" />
+    <Content Include="app\templates\phones\partial-phone.html" />
+    <Content Include="app\templates\phones\logo.jpg" />
+    <Content Include="scripts\ai.0.22.9-build00167.js" />
+    <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="table-data.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52088</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52088/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

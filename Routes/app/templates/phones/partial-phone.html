@@ -1,0 +1,24 @@
+﻿<div class="text-center">
+    <h1>The Phone Page</h1>
+    <p>This page shows some <span class="text-danger">phone</span> models.</p>
+</div>
+
+<div class="row" >
+
+  <div ui-view>
+      <div class="row">
+        
+          <!-- COLUMN ONE NAMED VIEW -->
+          <div class="col-sm-6 layout-align-center-center">
+              <div ui-view="Phones"></div>
+          </div>
+
+          <!-- COLUMN TWO NAMED VIEW -->
+          <div class="col-sm-6 layout-align-center-center" id="show">
+              <div ui-view="Details"></div>
+          </div>
+
+      </div>    
+  </div>
+
+</div>
