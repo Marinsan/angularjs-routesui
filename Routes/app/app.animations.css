@@ -60,26 +60,3 @@
   from { opacity: 1; }
   to   { opacity: 0; }
 }
-.phone {
-  background-color: #00ffff;
-  display: none;
-  float: left;
-  height: 400px;
-  margin-bottom: 2em;
-  margin-right: 3em;
-  padding: 2em;
-  width: 400px;
-}
-
-.phone:first-child {
-  display: block;
-}
-
-.phone-images {
-  background-color: #00ffff;
-  float: left;
-  height: 450px;
-  overflow: hidden;
-  position: relative;
-  width: 450px;
-}

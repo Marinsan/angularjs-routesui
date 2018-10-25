@@ -141,3 +141,8 @@ h1 {
 .md-padding {
     background-color: #00ffff;
 }
+
+.md-card {
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,4 +1,4 @@
-﻿<div class="layout-align-center-center">
+﻿<div>
     <form class="navbar-form" align="center">
         &nbsp;
         <div class="form-group navbar-center">
@@ -30,23 +30,23 @@
     </form>
 
 
-    <div class="container-fluid">
-        <div class="row">
+    <div class="Aligner">
+        <div flex-gt-xs="70" layout="column" layout-align="center" class="Aligner-item">
             <!--Body content-->
-            <ul class="phones">
-
                 <md-card ng-repeat="phone in phones | filter:query | orderBy:orderProp"
                          class="thumbnail phone-list-item">
                     <md-card-header>
-                        <md-card-avatar>
-                            <img src="/app/img/icons/smartphone.png" />
-                        </md-card-avatar>
+                       
+                            <md-card-avatar>
+                                <img src="/app/img/icons/smartphone.png" />
+                            </md-card-avatar>
+                      
                         <md-card-header-text>
                             <span class="md-title">AJS Material</span>
                             <span class="md-subhead">CMarin</span>
                         </md-card-header-text>
                     </md-card-header>
-                    <a ui-sref="phone({telefonSeleccionat: phone})">
+                    <a layout layout-align="center" ui-sref="phone({telefonSeleccionat: phone})">
                         <img class="md-card-image-2" height="150" width="150" alt="Washed Out" ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" />
                     </a>
                     <md-card-title class="text-center">
@@ -60,8 +60,6 @@
                         </p>
                     </md-card-content>
                 </md-card>
-
-            </ul>
         </div>
     </div>
 </div>  

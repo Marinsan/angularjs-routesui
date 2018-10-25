@@ -1,20 +1,20 @@
-﻿<div class="text-center">
+﻿<div layout="column" layout-align="center center">
     <h1>The Phone Page</h1>
-    <p>This page shows some <span class="text-danger">phone</span> models.</p>
+    <p>This page shows some phone models.</p>
 </div>
 
-<div class="row" >
+<div layout="row" >
 
   <div ui-view>
-      <div class="row">
+      <div layout="row">
         
           <!-- COLUMN ONE NAMED VIEW -->
-          <div class="col-sm-6 layout-align-center-center">
+          <div class="col-sm-6">
               <div ui-view="Phones"></div>
           </div>
 
           <!-- COLUMN TWO NAMED VIEW -->
-          <div class="col-sm-6 layout-align-center-center" id="show">
+          <div class="col-sm-6" id="show">
               <div ui-view="Details"></div>
           </div>
 
