@@ -30,11 +30,11 @@
     </form>
 
 
-    <div class="Aligner">
-        <div flex-gt-xs="70" layout="column" layout-align="center" class="Aligner-item">
+    <div class="container-fluid Aligner">
+        <div layout="column" layout-align="center center" class="Aligner-item">
             <!--Body content-->
                 <md-card ng-repeat="phone in phones | filter:query | orderBy:orderProp"
-                         class="thumbnail phone-list-item">
+                         class="phone-list-item">
                     <md-card-header>
                        
                             <md-card-avatar>

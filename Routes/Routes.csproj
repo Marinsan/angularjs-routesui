@@ -98,6 +98,7 @@
     <Content Include="app\app.animations.css" />
     <Content Include="app\core\checkmark.filter.js" />
     <Content Include="app\core\checkmark.filter.spec.js" />
+    <Content Include="app\dialog.js" />
     <Content Include="app\img\favicon.png" />
     <Content Include="app\img\icons\at-symbol.svg" />
     <Content Include="app\img\icons\check-form.svg" />
@@ -207,6 +208,7 @@
     <Content Include="app\img\wallpaper.jpg" />
     <Content Include="app\index.html" />
     <Content Include="app\templates\contact.html" />
+    <Content Include="app\templates\dialog-specs.html" />
     <Content Include="app\templates\forms\partial-form-material.html" />
     <Content Include="app\templates\forms\partial-form-ngmessages.html" />
     <Content Include="app\templates\forms\partial-form.html" />
