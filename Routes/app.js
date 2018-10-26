@@ -27,10 +27,6 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
                     
                     templateUrl: 'templates/phone-detail/partial-phone-detail.html',
                     controller: 'DetailController'
-                },
-                'MoreSpecs@phone': {
-                    templateUrl: 'templates/dialog-specs.html',
-                    controller: 'Dialog2Controller'
                 }
             },
             params: {
@@ -389,38 +385,4 @@ routerApp.controller('MessageController', function ($scope, $mdToast, $mdDialog)
 
 routerApp.controller('CardController', function($scope) {
     $scope.imagePath = 'img/logo.jpg';
-});
-
-routerApp.controller('Dialog2Controller', function ($scope, $mdDialog, $interval, $stateParams) {
-
-    $scope.phone = $stateParams.telefonSeleccionat;
-
-    $scope.showAdvanced = function (ev) {
-        $mdDialog.show({
-            controller: DialogController,
-            templateUrl: '/app/templates/dialog-specs.html',
-            parent: angular.element(document.body),
-            targetEvent: ev,
-            clickOutsideToClose: true
-        })
-        .then(function (answer) {
-            $scope.status = 'You said the information was "' + answer + '".';
-        }, function () {
-            $scope.status = 'You cancelled the dialog.';
-        });
-    };
-
-    function DialogController($scope, $mdDialog) {
-        $scope.hide = function () {
-            $mdDialog.hide();
-        };
-
-        $scope.cancel = function () {
-            $mdDialog.cancel();
-        };
-
-        $scope.answer = function (answer) {
-            $mdDialog.hide(answer);
-        };
-    }
 });
