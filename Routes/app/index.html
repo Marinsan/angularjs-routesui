@@ -51,58 +51,60 @@
         </md-nav-item>
     </md-nav-bar>-->    
 
-
-        <div ng-controller="NavController2 as demo" layout="right" layout-xs="right" ng-cloak>
+    
+        <div ng-controller="NavController2 as demo" layout="right" layout-xs="right center" ng-cloak>
             <md-content class="md-padding" layout="column">
                 <div layout="row">
-                    <md-fab-speed-dial md-open="demo.isOpen" md-direction="{{demo.selectedDirection}}"
-                                       ng-class="demo.selectedMode">
-                        <md-fab-trigger>
-                            <md-button aria-label="menu" class="md-fab md-warn">
-                                <md-icon md-svg-src="img/icons/menu.svg"></md-icon>
-                            </md-button>
-                        </md-fab-trigger>
+                    <div flex-gt-sm="66" flex="22">
+                        <md-fab-speed-dial md-open="demo.isOpen" md-direction="{{demo.selectedDirection}}"
+                                           ng-class="demo.selectedMode">
+                            <md-fab-trigger>
+                                <md-button aria-label="menu" class="md-fab md-warn">
+                                    <md-icon md-svg-src="img/icons/menu.svg"></md-icon>
+                                </md-button>
+                            </md-fab-trigger>
 
-                        <md-fab-actions>
-                            <a ui-sref="home">
-                                <md-button class="md-fab md-raised md-mini">
-                                    <md-icon title="Home" md-svg-src="img/icons/home.svg">
-                                    </md-icon>
-                                </md-button>
-                            </a>
-                            <a ui-sref="phone">
-                                <md-button class="md-fab md-raised md-mini">
-                                    <md-icon title="Telefons" md-svg-src="img/icons/mobile-devices.svg">
-                                    </md-icon>
-                                </md-button>
-                            </a>
-                            <a ui-sref="form">
-                                <md-button class="md-fab md-raised md-mini">
-                                    <md-icon title="Formulari" md-svg-src="img/icons/compose.svg"></md-icon>
-                                </md-button>
-                            </a>
-                            <a ui-sref="formng">
-                                <md-button class="md-fab md-raised md-mini">
-                                    <md-icon title="Formulari amb NMessages" md-svg-src="img/icons/check-form.svg"></md-icon>
-                                </md-button>
-                            </a>
-                            <a ui-sref="formMaterial">
-                                <md-button class="md-fab md-raised md-mini">
-                                    <md-icon title="Formulari Material" md-svg-src="img/icons/clipboard.svg"></md-icon>
-                                </md-button>
-                            </a>
-                            <a ui-sref="contact">
-                                <md-button class="md-fab md-raised md-mini">
-                                    <md-icon title="Contacte" md-svg-src="img/icons/user.svg"></md-icon>
-                                </md-button>
-                            </a>
-                            <a ui-sref="help">
-                                <md-button class="md-fab md-raised md-mini">
-                                    <md-icon title="Ajuda" md-svg-src="img/icons/question.svg"></md-icon>
-                                </md-button>
-                            </a>
-                        </md-fab-actions>
-                    </md-fab-speed-dial>
+                            <md-fab-actions>
+                                <a ui-sref="home">
+                                    <md-button class="md-fab md-raised md-mini">
+                                        <md-icon title="Home" md-svg-src="img/icons/home.svg">
+                                        </md-icon>
+                                    </md-button>
+                                </a>
+                                <a ui-sref="phone">
+                                    <md-button class="md-fab md-raised md-mini">
+                                        <md-icon title="Telefons" md-svg-src="img/icons/mobile-devices.svg">
+                                        </md-icon>
+                                    </md-button>
+                                </a>
+                                <a ui-sref="form">
+                                    <md-button class="md-fab md-raised md-mini">
+                                        <md-icon title="Formulari" md-svg-src="img/icons/compose.svg"></md-icon>
+                                    </md-button>
+                                </a>
+                                <a ui-sref="formng">
+                                    <md-button class="md-fab md-raised md-mini">
+                                        <md-icon title="Formulari amb NMessages" md-svg-src="img/icons/check-form.svg"></md-icon>
+                                    </md-button>
+                                </a>
+                                <a ui-sref="formMaterial">
+                                    <md-button class="md-fab md-raised md-mini">
+                                        <md-icon title="Formulari Material" md-svg-src="img/icons/clipboard.svg"></md-icon>
+                                    </md-button>
+                                </a>
+                                <a ui-sref="contact">
+                                    <md-button class="md-fab md-raised md-mini">
+                                        <md-icon title="Contacte" md-svg-src="img/icons/user.svg"></md-icon>
+                                    </md-button>
+                                </a>
+                                <a ui-sref="help">
+                                    <md-button class="md-fab md-raised md-mini">
+                                        <md-icon title="Ajuda" md-svg-src="img/icons/question.svg"></md-icon>
+                                    </md-button>
+                                </a>
+                            </md-fab-actions>
+                        </md-fab-speed-dial>
+                    </div>
                 </div>
             </md-content>
         </div>
