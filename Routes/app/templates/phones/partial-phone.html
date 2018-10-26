@@ -1,24 +1,27 @@
 ﻿<div layout="column" layout-align="center center">
     <h1>The Phone Page</h1>
     <p>This page shows some phone models.</p>
-</div>
 
-<div layout="row" >
 
-  <div ui-view>
-      <div layout="row">
-        
-          <!-- COLUMN ONE NAMED VIEW -->
-          <div class="col-sm-6">
-              <div ui-view="Phones"></div>
-          </div>
+    <div layout="row" layout-align="center center">
 
-          <!-- COLUMN TWO NAMED VIEW -->
-          <div class="col-sm-6" id="show">
-              <div ui-view="Details"></div>
-          </div>
+        <div ui-view>
+            <md-content class="md-padding" layout-xs="column" layout="row" layout-algin="center">
+                <div flex-xs flex-gt-xs="40" layout="column">
 
-      </div>    
-  </div>
+                    <!-- COLUMN ONE NAMED VIEW -->
+                    <div class="col-sm-6">
+                        <div ui-view="Phones"></div>
+                    </div>
+                </div>
+                <div flex-xs flex-gt-xs="40" layout="column">
+                    <!-- COLUMN TWO NAMED VIEW -->
+                    <div class="col-sm-6">
+                        <div ui-view="Details"></div>
+                    </div>
 
+                </div>
+        </div>
+
+    </div>
 </div>
