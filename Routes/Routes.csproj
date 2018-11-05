@@ -233,7 +233,6 @@
     <Content Include="app\img\wallpaper.jpg" />
     <Content Include="app\index.html" />
     <Content Include="app\templates\contact.html" />
-    <Content Include="app\templates\dialog-specs.html" />
     <Content Include="app\templates\forms\partial-form-material.html" />
     <Content Include="app\templates\forms\partial-form-ngmessages.html" />
     <Content Include="app\templates\forms\partial-form.html" />
