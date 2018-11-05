@@ -3,16 +3,21 @@ var routerApp = angular.module('routerApp', ['ui.router', 'core', 'validationApp
 
 routerApp.config(function ($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/login');
 
     $stateProvider    
       
       // Vistes del routeui
+
+        .state('login', {
+            url: '/login',
+            templateUrl: 'templates/user/login.html',
+            controller: 'LoginController'
+        })
     
         .state('phone', {
             url: '/phone',
             views: {
-                
                 "": {
                     templateUrl: 'templates/phones/partial-phone.html'
                 },
@@ -63,7 +68,35 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
 
 });
 
-// Coontrolador llista telefons
+routerApp.run(function ($rootScope, $location, $state, LoginService) {
+    $rootScope.$on('$stateChangeStart',
+      function (event, toState, toParams, fromState, fromParams) {
+          console.log('Changed state to: ' + toState);
+      });
+
+    if (!LoginService.isAuthenticated()) {
+        $state.transitionTo('login');
+    }
+})
+
+routerApp.factory('LoginService', function () {
+    var admin = 'admin';
+    var pass = 'pass';
+    var isAuthenticated = false;
+
+    return {
+        login: function (username, password) {
+            isAuthenticated = username === admin && password === pass;
+            return isAuthenticated;
+        },
+        isAuthenticated: function () {
+            return isAuthenticated;
+        }
+    };
+
+})
+
+// Controlador llista telefons
 
 routerApp.controller('PhoneController', function($scope, $stateParams) {
     $scope.phones = [
@@ -386,3 +419,19 @@ routerApp.controller('MessageController', function ($scope, $mdToast, $mdDialog)
 routerApp.controller('CardController', function($scope) {
     $scope.imagePath = 'img/logo.jpg';
 });
+
+
+routerApp.controller('LoginController', function ($scope, $rootScope, $stateParams, $state, LoginService) {
+    $rootScope.title = "AngularJS Login Sample";
+
+    $scope.formSubmit = function () {
+        if (LoginService.login($scope.username, $scope.password)) {
+            $scope.error = '';
+            $scope.username = '';
+            $scope.password = '';
+            $state.transitionTo('home');
+        } else {
+            $scope.error = "Incorrect username/password !";
+        }
+    }
+})

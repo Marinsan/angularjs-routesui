@@ -239,6 +239,12 @@
     <Content Include="app\templates\help.html" />
     <Content Include="app\templates\home.html" />
     <Content Include="app\templates\toast-template.html" />
+    <Content Include="app\templates\user\login.html" />
+    <Content Include="app\templates\user\register.html" />
+    <Content Include="App_Data\Telefons.mdf" />
+    <Content Include="App_Data\Telefons_log.ldf">
+      <DependentUpon>Telefons.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\angular-material.css" />
     <Content Include="Content\angular-material.layout-attributes.css" />
     <Content Include="Content\angular-material.layout-attributes.min.css" />

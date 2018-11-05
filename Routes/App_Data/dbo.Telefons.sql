@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[Telefons]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+	[Model] NVARCHAR(50) NOT NULL, 
+	[Marca] NVARCHAR(50) NOT NULL, 
+	[Descripcio] NVARCHAR(200) NOT NULL,
+)
