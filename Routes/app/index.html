@@ -35,80 +35,38 @@
 
 
 </head>
-
-<!-- apply our angular app to our site -->
-<body ng-app="routerApp">
-
+<body ng-app="rootApp">
+    <!-- apply our angular app to our site -->
     <!-- NAVIGATION -->
-   <!--<md-nav-bar md-selected-nav-item="currentNavItem" class="nav">
-        <md-nav-item md-nav-sref="phone">
-            Telefons
-        </md-nav-item>
-        <md-nav-item md-nav-sref="form">Formulari</md-nav-item>
-        <md-nav-item md-nav-sref="formng">Formulari NG</md-nav-item>
-        <md-nav-item md-nav-sref="formMaterial">
-            Formulari Material
-        </md-nav-item>
-    </md-nav-bar>-->    
+    <!--<md-nav-bar md-selected-nav-item="currentNavItem" class="nav">
+         <md-nav-item md-nav-sref="phone">
+             Telefons
+         </md-nav-item>
+         <md-nav-item md-nav-sref="form">Formulari</md-nav-item>
+         <md-nav-item md-nav-sref="formng">Formulari NG</md-nav-item>
+         <md-nav-item md-nav-sref="formMaterial">
+             Formulari Material
+         </md-nav-item>
+     </md-nav-bar>-->
+    <div id="panelProviderDemo" ng-controller="PanelProviderCtrl as ctrl" ng-cloak class="menu">
 
-    
-        <div ng-controller="NavController2 as demo" layout="left" layout-xs="left center" ng-cloak>
-            <md-content class="md-padding" layout="column">
-                <div layout="row">
-                    <div flex-gt-sm="66" flex="22">
-                        <md-fab-speed-dial md-open="demo.isOpen" md-direction="{{demo.selectedDirection}}"
-                                           ng-class="demo.selectedMode">
-                            <md-fab-trigger>
-                                <md-button aria-label="menu" class="md-fab md-warn">
-                                    <md-icon md-svg-src="img/icons/menu.svg"></md-icon>
-                                </md-button>
-                            </md-fab-trigger>
+        <md-content layout-padding class="menu">
 
-                            <md-fab-actions>
-                                <a ui-sref="home">
-                                    <md-button class="md-fab md-raised md-mini">
-                                        <md-icon title="Home" md-svg-src="img/icons/home.svg">
-                                        </md-icon>
-                                    </md-button>
-                                </a>
-                                <a ui-sref="phone">
-                                    <md-button class="md-fab md-raised md-mini">
-                                        <md-icon title="Telefons" md-svg-src="img/icons/mobile-devices.svg">
-                                        </md-icon>
-                                    </md-button>
-                                </a>
-                                <a ui-sref="form">
-                                    <md-button class="md-fab md-raised md-mini">
-                                        <md-icon title="Formulari" md-svg-src="img/icons/compose.svg"></md-icon>
-                                    </md-button>
-                                </a>
-                                <a ui-sref="formng">
-                                    <md-button class="md-fab md-raised md-mini">
-                                        <md-icon title="Formulari amb NMessages" md-svg-src="img/icons/check-form.svg"></md-icon>
-                                    </md-button>
-                                </a>
-                                <a ui-sref="contact">
-                                    <md-button class="md-fab md-raised md-mini">
-                                        <md-icon title="Contacte" md-svg-src="img/icons/user.svg"></md-icon>
-                                    </md-button>
-                                </a>
-                                <a ui-sref="help">
-                                    <md-button class="md-fab md-raised md-mini">
-                                        <md-icon title="Ajuda" md-svg-src="img/icons/question.svg"></md-icon>
-                                    </md-button>
-                                </a>
-                            </md-fab-actions>
-                        </md-fab-speed-dial>
-                    </div>
-                </div>
-            </md-content>
-        </div>
+            <div layout="row" layout-align="space-between center" flex>
+                <md-button class="md-fab md-primary"
+                           ng-click="ctrl.showMenu($event, ctrl.navigation)">
+                    <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+                </md-button>
+            </div>
+        </md-content>
+    </div>
 
+    <div id="routerApp">
         <div layout layout-align="center center">
 
             <div ui-view></div>
 
         </div>
-
+    </div> 
 </body>
 </html>

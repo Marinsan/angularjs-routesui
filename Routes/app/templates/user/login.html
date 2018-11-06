@@ -1,38 +1,31 @@
-﻿<div class="container" ng-app="routerApp">
-    <div class="row">
+﻿
+<div class="container" ng-app="loginApp">
+
+    <h1>Login</h1>
         <div class="col-md-12">
-            <div class="page-header">
-                <h1>{{ title }}</h1>
-            </div>
-        </div>
-
-        <div ui-view></div>
-
-    </div>
-
-    <script type="text/ng-template" id="login.html">
-        <div class="col-md-12">
-            <h3>Login Page</h3>
 
             <form ng-submit="formSubmit()" class="form">
                 <div class="col-md-4">
-                    <div class="form-group">
-                        <input type="text" class="form-control" ng-model="username" placeholder="username" required="" />
-                    </div>
+                    <md-input-container class="md-icon-float md-block">
+                        <label>Nom d'usuari</label>
+                        <md-icon md-svg-src="img/icons/user.svg" class="name"></md-icon>
+                        <input ng-model="username" type="text" required>
+                    </md-input-container>
 
-                    <div class="form-group">
-                        <input type="password" class="form-control" ng-model="password" placeholder="password" required="" />
-                    </div>
+                    <md-input-container class="md-icon-float md-block">
+                        <label>Contrasenya</label>
+                        <md-icon md-svg-src="img/icons/baseline-vpn_key-24px.svg" class="name"></md-icon>
+                        <input ng-model="password" type="password" required>
+                    </md-input-container>
 
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-success">Login</button>
+                    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                    <md-button class="md-raised md-primary" ng-disabled="userForm.$invalid" ng-click="sumbit" type="sumbit">Enviar</md-button>
                         <span class="text-danger">{{ error }}</span>
-                    </div>
-
+                </section>
                 </div>
             </form>
         </div>
-    </script>
+
 
     <script type="text/ng-template" id="home.html">
         <div class="col-md-12">

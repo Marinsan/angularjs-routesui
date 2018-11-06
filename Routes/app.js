@@ -1,4 +1,5 @@
 ﻿// app.js
+var rootApp = angular.module('rootApp', ['routerApp', 'menuApp']);
 var routerApp = angular.module('routerApp', ['ui.router', 'core', 'validationApp', 'ngAnimate', 'ngMaterial', 'ngMessages']);
 
 routerApp.config(function ($stateProvider, $urlRouterProvider) {
@@ -60,6 +61,9 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
     .state('home', {
         url: '/home',
         templateUrl: 'templates/home.html',
+        resolve: {
+            access: ["LoginService", function (LoginService) { return LoginService.isAuthenticated(); }],
+        }
     })
      .state('contact', {
          url: '/contact',
@@ -67,6 +71,8 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
      })
 
 });
+
+// Controlador login
 
 routerApp.run(function ($rootScope, $location, $state, LoginService) {
     $rootScope.$on('$stateChangeStart',
@@ -78,6 +84,22 @@ routerApp.run(function ($rootScope, $location, $state, LoginService) {
         $state.transitionTo('login');
     }
 })
+
+routerApp.controller('LoginController', function ($scope, $stateParams, $state, LoginService) {
+
+    $scope.formSubmit = function () {
+        if (LoginService.login($scope.username, $scope.password)) {
+            $scope.error = '';
+            $scope.username = '';
+            $scope.password = '';
+            $state.transitionTo('home');
+        } else {
+            $scope.error = "Nom d'usuari/Contrasenya incorrectes !";
+        }
+    };
+
+})
+
 
 routerApp.factory('LoginService', function () {
     var admin = 'admin';
@@ -420,18 +442,103 @@ routerApp.controller('CardController', function($scope) {
     $scope.imagePath = 'img/logo.jpg';
 });
 
+(function () {
+    'use strict';
 
-routerApp.controller('LoginController', function ($scope, $rootScope, $stateParams, $state, LoginService) {
-    $rootScope.title = "AngularJS Login Sample";
+    angular
+        .module('menuApp', ['ngMaterial'])
+        .config(PanelProviderConfig)
+        .controller('PanelProviderCtrl', PanelProviderCtrl)
+        .controller('PanelMenuCtrl', PanelMenuCtrl);
 
-    $scope.formSubmit = function () {
-        if (LoginService.login($scope.username, $scope.password)) {
-            $scope.error = '';
-            $scope.username = '';
-            $scope.password = '';
-            $state.transitionTo('home');
-        } else {
-            $scope.error = "Incorrect username/password !";
-        }
+    /**
+     * Configuration method that is used to define a preset for the upcoming panel
+     * element. Each parameter in the preset is an available parameter in the
+     * `$mdPanel.create` and `$mdPanel.open` methods. When the parameters are
+     * defined here, they overwrite the default parameters for any panel that the
+     * preset is requested for.
+     * @param {!MdPanelProvider} $mdPanelProvider Provider method of the MdPanel
+     *     API.
+     */
+    function PanelProviderConfig($mdPanelProvider) {
+        $mdPanelProvider.definePreset('demoPreset', {
+            attachTo: angular.element(document.body),
+            controller: PanelMenuCtrl,
+            controllerAs: 'ctrl',
+            template: '' +
+                '<div class="menu-panel" md-whiteframe="4">' +
+                '  <div class="menu-content">' +
+                '    <div class="menu-item" ng-repeat="item in ctrl.items">' +
+                '      <button class="md-button">' +
+                '        <span><a ng-href="#/{{item.id}}" >&nbsp;&nbsp;{{item.name}}</a></li></span>' +
+                '      </button>' +
+                '    </div>' +
+                '    <md-divider></md-divider>' +
+                '    <div class="menu-item">' +
+                '      <button class="md-button" ng-click="ctrl.closeMenu()">' +
+                '        <span>Close Menu</span>' +
+                '      </button>' +
+                '    </div>' +
+                '  </div>' +
+                '</div>',
+            panelClass: 'menu-panel-container',
+            focusOnOpen: false,
+            zIndex: 100,
+            propagateContainerEvents: true,
+            groupName: 'menus'
+        });
     }
-})
+
+    function PanelProviderCtrl($mdPanel,$scope) {
+
+        $scope.items = [{ name: 'system', icon: 'fa fa-windows fa-2x', id: 'system' },
+
+                   { name: 'recognition', icon: 'fa fa-indent fa-2x', id: 'recognition' },
+
+                   { name: 'route', icon: 'fa fa-indent fa-2x', id: 'route' },
+
+                   { name: 'auth', icon: 'fa fa-user-circle-o fa-2x', id: 'auth' },
+
+                   { name: 'strategy', icon: 'fa fa-windows fa-2x', id: 'strategy' },
+
+                   { name: 'strategy', icon: 'fa fa-windows fa-2x', id: 'static' }
+        ];
+
+        
+
+        $mdPanel.newPanelGroup('menus', {
+            maxOpen: 2
+        });
+
+        this.showMenu = function ($event, menu) {
+            /**
+             * The request to open the panel has two arguments passed into it. The
+             * first is a preset name passed in as a string. This will request a
+             * cached preset and apply its configuration parameters. The second is an
+             * object containing parameters that can only be filled through a
+             * controller. These parameters represent configuration needs associated
+             * with user interaction, panel position, panel animation, and other
+             * miscellaneous needs.
+             */
+            $mdPanel.open('demoPreset', {
+                id: 'menu_' + menu.name,
+                position: $mdPanel.newPanelPosition()
+                    .relativeTo($event.target)
+                    .addPanelPosition(
+                      $mdPanel.xPosition.ALIGN_START,
+                      $mdPanel.yPosition.BELOW
+                    ),
+                locals: {
+                    items: menu.items
+                },
+                openFrom: $event
+            });
+        };
+    }
+
+    function PanelMenuCtrl(mdPanelRef) {
+        this.closeMenu = function () {
+            mdPanelRef && mdPanelRef.close();
+        };
+    }
+})();

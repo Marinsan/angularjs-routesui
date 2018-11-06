@@ -117,6 +117,7 @@
     <Content Include="app\img\icons\baseline-sd_storage-24px.svg" />
     <Content Include="app\img\icons\baseline-settings-20px.svg" />
     <Content Include="app\img\icons\baseline-usb-24px.svg" />
+    <Content Include="app\img\icons\baseline-vpn_key-24px.svg" />
     <Content Include="app\img\icons\baseline-wifi-24px.svg" />
     <Content Include="app\img\icons\battery.svg" />
     <Content Include="app\img\icons\check-form.svg" />
