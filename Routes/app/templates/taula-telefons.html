@@ -1,0 +1,22 @@
+﻿<div ng-app="routerApp">
+    <div ng-controller="TelefonsController">
+        <table class="table table-striped table-bordered table-hover table-checkable datatable">
+            <thead class="grid-top-panel">
+                <tr>
+                    <th>TelefonID</th>
+                    <th>Nom</th>
+                    <th>Marca</th>
+                    <th>Preu</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="dataModel in telefons">
+                    <td>{{dataModel.id}}</td>
+                    <td>{{dataModel.model}}</td>
+                    <td>{{dataModel.marca}}</td>
+                    <td>{{dataModel.preu}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,5 +1,4 @@
 ﻿// app.js
-var rootApp = angular.module('rootApp', ['routerApp', 'menuApp']);
 var routerApp = angular.module('routerApp', ['ui.router', 'core', 'validationApp', 'ngAnimate', 'ngMaterial', 'ngMessages', 'dx']);
 
 routerApp.config(function ($stateProvider, $urlRouterProvider) {
@@ -13,7 +12,8 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
         .state('login', {
             url: '/login',
             templateUrl: 'templates/user/login.html',
-            controller: 'LoginController'
+            controller: 'LoginController',
+            data: {login: false}
         })
     
         .state('phone', {
@@ -37,90 +37,57 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
             },
             params: {
                 telefonSeleccionat: {}
-            }
+            },
+            data: { login: true }
         })
 
     
     .state('form', {
         url: '/form',
         templateUrl: 'templates/forms/partial-form.html',
+        data: { login: true }
     })
 
     .state('formng', {
         url: '/formNgMessages',
         templateUrl: 'templates/forms/partial-form-ngmessages.html',
+        data: { login: true }
+
     })
     .state('formMaterial', {
         url: '/formMaterial',
         templateUrl: 'templates/forms/partial-form-material.html',
+        data: { login: true }
     })
     .state('help', {
         url: '/help',
         templateUrl: 'templates/help.html',
+        data: { login: false }
     })
     .state('home', {
         url: '/home',
         templateUrl: 'templates/home.html',
-        resolve: {
-            access: ["LoginService", function (LoginService) { return LoginService.isAuthenticated(); }],
-        }
+        data: { login: false }
     })
      .state('contact', {
          url: '/contact',
          templateUrl: 'templates/contact.html',
+         data: { login: false }
      })
     .state('taula', {
         url: '/taula',
         templateUrl: 'templates/data-grid.html',
+        controller: 'GridController',
+        data: { LoginService: true }
+    })
+    .state('taulaTelefons', {
+        url: '/taulaTelefons',
+        templateUrl: 'templates/taula-telefons.html',
+        controller: 'TelefonsController',
+        data: { LoginService: true }
     })
 
 });
-
-// Controlador login
-
-routerApp.run(function ($rootScope, $location, $state, LoginService) {
-    $rootScope.$on('$stateChangeStart',
-      function (event, toState, toParams, fromState, fromParams) {
-          console.log('Changed state to: ' + toState);
-      });
-
-    if (!LoginService.isAuthenticated()) {
-        $state.transitionTo('login');
-    }
-})
-
-routerApp.controller('LoginController', function ($scope, $stateParams, $state, LoginService) {
-
-    $scope.formSubmit = function () {
-        if (LoginService.login($scope.username, $scope.password)) {
-            $scope.error = '';
-            $scope.username = '';
-            $scope.password = '';
-            $state.transitionTo('home');
-        } else {
-            $scope.error = "Nom d'usuari/Contrasenya incorrectes !";
-        }
-    };
-
-})
-
-
-routerApp.factory('LoginService', function () {
-    var admin = 'admin';
-    var pass = 'pass';
-    var isAuthenticated = false;
-
-    return {
-        login: function (username, password) {
-            isAuthenticated = username === admin && password === pass;
-            return isAuthenticated;
-        },
-        isAuthenticated: function () {
-            return isAuthenticated;
-        }
-    };
-
-})
 
 // Controlador llista telefons
 
@@ -345,187 +312,50 @@ routerApp.controller('DetailController', function ($stateParams, $scope) {
     $scope.phone = $stateParams.telefonSeleccionat;
 })
 
-// Variable + Controllador per a la validacio del formulari partial-form.html
 
-var validationApp = angular.module('validationApp', []);
+// Controlador login
 
+routerApp.run(function ($rootScope, $location, $state, LoginService) {
+    $rootScope.$on('$stateChangeStart',
+      function (event, toState, toParams, fromState, fromParams) {
+          console.log('Changed state to: ' + toState);
+      });
 
-validationApp.controller('mainController', function ($scope) {
-           
-    $scope.submitForm = function (isValid) {
+    if (!LoginService.isAuthenticated()) {
+        $state.transitionTo('login');
+    }
+})
 
-        if (isValid) {
-            alert('our form is amazing');
+routerApp.controller('LoginController', function ($scope, $stateParams, $state, LoginService) {
+
+    $scope.formSubmit = function () {
+        if (LoginService.login($scope.username, $scope.password)) {
+            $scope.error = '';
+            $scope.username = '';
+            $scope.password = '';
+            $state.transitionTo('home');
+        } else {
+            $scope.error = "Nom d'usuari/Contrasenya incorrectes !";
         }
-
     };
 
-});
-
-// Controlador Formulari Material simple partial-form-material.html
-
-routerApp.controller('FormController', function ($scope) {
-      $scope.user = {
-            name: 'Cristian Marin',
-            email: '',
-            phone: ''
-       };
-});
-
-// Controlador NavBar antic
-routerApp.controller('NavController', function ($scope) {
-    $scope.currentNavItem = 'page1';
-
-});
-
-// Controlador NavBar actual 
-
-routerApp.controller('NavController2', function ($scope) {
-
-    this.topDirections = ['left', 'up'];
-    this.bottomDirections = ['down', 'right'];
-
-    this.isOpen = false;
-
-    this.availableModes = ['md-fling', 'md-scale'];
-    this.selectedMode = 'md-fling';
-
-    this.availableDirections = ['up', 'down', 'left', 'right'];
-    this.selectedDirection = 'right';
-});
-
-// Configuracio per als missatges arial-label
-
-routerApp.config(['$mdAriaProvider', function ($mdAriaProvider) {
-    $mdAriaProvider.disableWarnings();
-}]);
+})
 
 
-// Controlador Missatge al premer boto Enviar al formulari
+routerApp.factory('LoginService', function () {
+    var admin = 'admin';
+    var pass = 'pass';
+    var isAuthenticated = false;
 
-routerApp.controller('MessageController', function ($scope, $mdToast, $mdDialog) {
-    $scope.showCustomToast = function () {
-        $mdToast.show({
-            hideDelay: 3000,
-            position: 'top right',
-            templateUrl: 'templates/toast-template.html'
-        });
-    };
-    $scope.closeToast = function () {
-        if (routerApp) return;
-
-        $mdToast
-          .hide()
-          .then(function () {
-              dialogApp = false;
-          });
+    return {
+        login: function (username, password) {
+            isAuthenticated = username === admin && password === pass;
+            return isAuthenticated;
+        },
+        isAuthenticated: function () {
+            return isAuthenticated;
+        }
     };
 
-    $scope.openMoreInfo = function (e) {
-        if (routerApp) return;
-        routerApp = true;
+})
 
-        $mdDialog
-          .show($mdDialog
-            .alert()
-            .title('More info goes here.')
-            .textContent('Something witty.')
-            .ariaLabel('More info')
-            .ok('Got it')
-            .targetEvent(e)
-          )
-          .then(function () {
-              routerApp = false;
-          });
-    };
-});
-
-// Controlador Imatge Carta contact
-
-routerApp.controller('CardController', function($scope) {
-    $scope.imagePath = 'img/logo.jpg';
-});
-
-(function () {
-    'use strict';
-
-    angular
-        .module('menuApp', ['ngMaterial'])
-        .config(PanelProviderConfig)
-        .controller('PanelProviderCtrl', PanelProviderCtrl)
-        .controller('PanelMenuCtrl', PanelMenuCtrl);
-
-    /**
-     * Configuration method that is used to define a preset for the upcoming panel
-     * element. Each parameter in the preset is an available parameter in the
-     * `$mdPanel.create` and `$mdPanel.open` methods. When the parameters are
-     * defined here, they overwrite the default parameters for any panel that the
-     * preset is requested for.
-     * @param {!MdPanelProvider} $mdPanelProvider Provider method of the MdPanel
-     *     API.
-     */
-    function PanelProviderConfig($mdPanelProvider) {
-        $mdPanelProvider.definePreset('demoPreset', {
-            attachTo: angular.element(document.body),
-            controller: PanelMenuCtrl,
-            controllerAs: 'ctrl',
-            templateUrl: 'templates/menu.html',
-            panelClass: 'menu-panel-container',
-            focusOnOpen: false,
-            zIndex: 100,
-            clickOutsideToClose: true,
-            propagateContainerEvents: true,
-            groupName: 'menus',
-            hasBackdrop: true,
-            escapeToClose: true,
-            focusOnOpen: true
-        });
-    }
-
-    function PanelProviderCtrl($mdPanel) {
-        
-        this.navigation = {
-            name: 'navigation',
-            items: [
-              'Home',
-              'About',
-              'Contact'
-            ]
-        };
-
-        $mdPanel.newPanelGroup('menus', {
-            maxOpen: 2
-        });
-
-        this.showMenu = function ($event, menu) {
-            /**
-             * The request to open the panel has two arguments passed into it. The
-             * first is a preset name passed in as a string. This will request a
-             * cached preset and apply its configuration parameters. The second is an
-             * object containing parameters that can only be filled through a
-             * controller. These parameters represent configuration needs associated
-             * with user interaction, panel position, panel animation, and other
-             * miscellaneous needs.
-             */
-            $mdPanel.open('demoPreset', {
-                id: 'menu_' + menu.name,
-                position: $mdPanel.newPanelPosition()
-                    .relativeTo($event.target)
-                    .addPanelPosition(
-                      $mdPanel.xPosition.ALIGN_START,
-                      $mdPanel.yPosition.BELOW
-                    ),
-                locals: {
-                    items: menu.items
-                },
-                openFrom: $event
-            });
-        };
-    }
-
-    function PanelMenuCtrl(mdPanelRef) {
-        this.closeMenu = function () {
-            mdPanelRef && mdPanelRef.close();
-        };
-    }
-})();

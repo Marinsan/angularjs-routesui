@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/app/img/favicon.png" sizes="64x64">
     <!-- CSS (load bootstrap) -->
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css" />
+    <link rel="stylesheet" href="../Content/angular-material.css" />
     <link rel="stylesheet" href="css/app.animations.css" />
     <link rel="stylesheet" href="css/app.css" />
     <style>
@@ -19,36 +19,52 @@
     
     <script src="lib/angular/angular.js"></script>
     <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/dialog.js"></script>
-    <script src="core/checkmark.filter.js"></script>
-    <script src="lib/jquery/jquery-3.3.1.js"></script>
+    
 
 
     <!-- Angular Material requires Angular.js Libraries -->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular-animate/angular-animate.min.js"></script>
+    <script src="lib/angular-aria/angular-aria.min.js"></script>
+    <script src="lib/angular-messages/angular-messages.min.js"></script>
 
     <!-- Angular Material Library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+    <script src="lib/angular-material/angular-material.min.js"></script>
 
+    <!-- DevExtreme Datagrid jQuery -->
+    <script type="text/javascript" src="lib/jquery/jquery-3.3.1.min.js"></script>
+
+    <!-- Reference either Knockout or AngularJS, if you do -->
+    <script type="text/javascript" src="lib/knockout/knockout-3.4.2.js"></script>
+
+    <!-- DevExtreme themes -->
+    <link rel="stylesheet" type="text/css" href="../Content/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="../Content/dx.material.orange.light.css" />
+
+    <!-- DevExtreme library -->
+    <script type="text/javascript" src="lib/devextreme/dx.all.js"></script>
+    <script type="text/javascript" src="lib/cldr/cldr.js"></script>
+    <script type="text/javascript" src="lib/cldr/event.js"></script>
+    <script type="text/javascript" src="lib/cldr/supplemental.js"></script>
+    <script type="text/javascript" src="lib/cldr/unresolved.js"></script>
+     <script type="text/javascript" src="lib/globalize/globalize.js"></script>
+    <script type="text/javascript" src="lib/globalize/message.js"></script>
+    <script type="text/javascript" src="lib/globalize/number.js"></script>
+    <script type="text/javascript" src="lib/globalize/currency.js"></script>
+    <script type="text/javascript" src="lib/globalize/date.js"></script>
+
+    <!-- Scripts Propietaris -->
+    <script src="js/app.js"></script>
+    <script src="js/dialog.js"></script>
+    <script src="core/checkmark.filter.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/data-grid.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/telefons.js"></script>
 
 </head>
-<body ng-app="rootApp">
-    <!-- apply our angular app to our site -->
-    <!-- NAVIGATION -->
-    <!--<md-nav-bar md-selected-nav-item="currentNavItem" class="nav">
-         <md-nav-item md-nav-sref="phone">
-             Telefons
-         </md-nav-item>
-         <md-nav-item md-nav-sref="form">Formulari</md-nav-item>
-         <md-nav-item md-nav-sref="formng">Formulari NG</md-nav-item>
-         <md-nav-item md-nav-sref="formMaterial">
-             Formulari Material
-         </md-nav-item>
-     </md-nav-bar>-->
+<body ng-app="routerApp">
+
     <div id="panelProviderDemo" ng-controller="PanelProviderCtrl as ctrl" ng-cloak class="menu">
 
         <md-content layout-padding class="menu">
@@ -62,7 +78,7 @@
         </md-content>
     </div>
 
-    <div id="routerApp">
+    <div>
         <div layout layout-align="center center">
 
             <div ui-view></div>
