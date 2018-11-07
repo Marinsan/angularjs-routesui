@@ -94,11 +94,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app.css" />
-    <Content Include="app\app.animations.css" />
+    <Content Include="app\css\app.css" />
+    <Content Include="app\css\app.animations.css" />
     <Content Include="app\core\checkmark.filter.js" />
     <Content Include="app\core\checkmark.filter.spec.js" />
-    <Content Include="app\dialog.js" />
+    <Content Include="app\js\data-grid.js" />
+    <Content Include="app\js\dialog.js" />
     <Content Include="app\img\favicon.png" />
     <Content Include="app\img\icons\accelerometer.png" />
     <Content Include="app\img\icons\at-symbol.svg" />
@@ -234,6 +235,7 @@
     <Content Include="app\img\wallpaper.jpg" />
     <Content Include="app\index.html" />
     <Content Include="app\templates\contact.html" />
+    <Content Include="app\templates\data-grid.html" />
     <Content Include="app\templates\forms\partial-form-material.html" />
     <Content Include="app\templates\forms\partial-form-ngmessages.html" />
     <Content Include="app\templates\forms\partial-form.html" />
@@ -279,20 +281,27 @@
     <Content Include="app\templates\phones\sanyo-zio.json" />
     <Content Include="app\templates\phones\t-mobile-g2.json" />
     <Content Include="app\templates\phones\t-mobile-mytouch-4g.json" />
-    <Content Include="scripts\angular-animate.js" />
-    <Content Include="scripts\angular-animate.min.js" />
-    <Content Include="scripts\angular-animate.min.js.map" />
-    <Content Include="app\app.animations.js" />
-    <Content Include="scripts\angular-aria.js" />
-    <Content Include="scripts\angular-aria.min.js" />
-    <Content Include="scripts\angular-material-mocks.js" />
-    <Content Include="scripts\angular-material.js" />
-    <Content Include="scripts\angular-material.min.js" />
-    <Content Include="scripts\angular-mocks.js" />
-    <Content Include="scripts\angular.js" />
-    <Content Include="scripts\angular.min.js" />
-    <Content Include="scripts\angular.min.js.map" />
-    <Content Include="scripts\angular-aria.min.js.map" />
+    <Content Include="app\lib\angular-animate\angular-animate.js" />
+    <Content Include="app\lib\angular-animate\angular-animate.min.js" />
+    <Content Include="app\lib\angular-animate\angular-animate.min.js.map" />
+    <Content Include="app\js\app.animations.js" />
+    <Content Include="app\lib\angular-aria\angular-aria.js" />
+    <Content Include="app\lib\angular-aria\angular-aria.min.js" />
+    <Content Include="app\lib\angular-material\angular-material-mocks.js" />
+    <Content Include="app\lib\angular-material\angular-material.js" />
+    <Content Include="app\lib\angular-material\angular-material.min.js" />
+    <Content Include="app\lib\angular-mocks\angular-mocks.js" />
+    <Content Include="app\lib\angular\angular.js" />
+    <Content Include="app\lib\angular\angular.min.js" />
+    <Content Include="app\lib\angular\angular.min.js.map" />
+    <Content Include="app\lib\angular-aria\angular-aria.min.js.map" />
+    <None Include="app\lib\jquery\jquery-3.3.1.intellisense.js" />
+    <Content Include="app\lib\jquery\jquery-3.3.1.js" />
+    <Content Include="app\lib\jquery\jquery-3.3.1.min.js" />
+    <Content Include="app\lib\jquery\jquery-3.3.1.slim.js" />
+    <Content Include="app\lib\jquery\jquery-3.3.1.slim.min.js" />
+    <Content Include="app\lib\jquery\jquery-3.3.1.slim.min.map" />
+    <Content Include="app\lib\jquery\jquery-3.3.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -301,7 +310,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app.js" />
+    <Content Include="app\js\app.js" />
     <Content Include="app\templates\phone-detail\partial-phone-detail.html" />
     <Content Include="app\templates\phone-list\partial-phone-list.html" />
     <Content Include="app\templates\phones\partial-phone.html" />

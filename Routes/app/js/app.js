@@ -1,6 +1,6 @@
 ﻿// app.js
 var rootApp = angular.module('rootApp', ['routerApp', 'menuApp']);
-var routerApp = angular.module('routerApp', ['ui.router', 'core', 'validationApp', 'ngAnimate', 'ngMaterial', 'ngMessages']);
+var routerApp = angular.module('routerApp', ['ui.router', 'core', 'validationApp', 'ngAnimate', 'ngMaterial', 'ngMessages', 'dx']);
 
 routerApp.config(function ($stateProvider, $urlRouterProvider) {
 
@@ -69,6 +69,10 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
          url: '/contact',
          templateUrl: 'templates/contact.html',
      })
+    .state('taula', {
+        url: '/taula',
+        templateUrl: 'templates/data-grid.html',
+    })
 
 });
 
