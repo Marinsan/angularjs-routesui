@@ -7,7 +7,7 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/login');
 
     $stateProvider    
-      
+   
       // Vistes del routeui
 
         .state('login', {
@@ -465,46 +465,29 @@ routerApp.controller('CardController', function($scope) {
             attachTo: angular.element(document.body),
             controller: PanelMenuCtrl,
             controllerAs: 'ctrl',
-            template: '' +
-                '<div class="menu-panel" md-whiteframe="4">' +
-                '  <div class="menu-content">' +
-                '    <div class="menu-item" ng-repeat="item in ctrl.items">' +
-                '      <button class="md-button">' +
-                '        <span><a ng-href="#/{{item.id}}" >&nbsp;&nbsp;{{item.name}}</a></li></span>' +
-                '      </button>' +
-                '    </div>' +
-                '    <md-divider></md-divider>' +
-                '    <div class="menu-item">' +
-                '      <button class="md-button" ng-click="ctrl.closeMenu()">' +
-                '        <span>Close Menu</span>' +
-                '      </button>' +
-                '    </div>' +
-                '  </div>' +
-                '</div>',
+            templateUrl: 'templates/menu.html',
             panelClass: 'menu-panel-container',
             focusOnOpen: false,
             zIndex: 100,
+            clickOutsideToClose: true,
             propagateContainerEvents: true,
-            groupName: 'menus'
+            groupName: 'menus',
+            hasBackdrop: true,
+            escapeToClose: true,
+            focusOnOpen: true
         });
     }
 
-    function PanelProviderCtrl($mdPanel,$scope) {
-
-        $scope.items = [{ name: 'system', icon: 'fa fa-windows fa-2x', id: 'system' },
-
-                   { name: 'recognition', icon: 'fa fa-indent fa-2x', id: 'recognition' },
-
-                   { name: 'route', icon: 'fa fa-indent fa-2x', id: 'route' },
-
-                   { name: 'auth', icon: 'fa fa-user-circle-o fa-2x', id: 'auth' },
-
-                   { name: 'strategy', icon: 'fa fa-windows fa-2x', id: 'strategy' },
-
-                   { name: 'strategy', icon: 'fa fa-windows fa-2x', id: 'static' }
-        ];
-
+    function PanelProviderCtrl($mdPanel) {
         
+        this.navigation = {
+            name: 'navigation',
+            items: [
+              'Home',
+              'About',
+              'Contact'
+            ]
+        };
 
         $mdPanel.newPanelGroup('menus', {
             maxOpen: 2

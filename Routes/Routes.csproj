@@ -239,6 +239,7 @@
     <Content Include="app\templates\forms\partial-form.html" />
     <Content Include="app\templates\help.html" />
     <Content Include="app\templates\home.html" />
+    <Content Include="app\templates\menu.html" />
     <Content Include="app\templates\toast-template.html" />
     <Content Include="app\templates\user\login.html" />
     <Content Include="app\templates\user\register.html" />
