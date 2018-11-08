@@ -1,7 +1,7 @@
 ﻿
-<div class="container" ng-app="loginApp">
+    <div class="container" ng-app="loginApp">
 
-    <h1>Login</h1>
+        <h1>Login</h1>
         <div class="col-md-12">
 
             <form ng-submit="formSubmit()" class="form">
@@ -19,10 +19,10 @@
                     </md-input-container>
 
                     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-                    <md-button class="md-raised md-primary" ng-disabled="userForm.$invalid" ng-click="sumbit" type="sumbit">Enviar</md-button>
+                        <md-button class="md-raised md-primary" ng-disabled="userForm.$invalid" ng-click="sumbit" type="sumbit">Enviar</md-button>
                         <span class="text-danger">{{ error }}</span>
-                </section>
+                    </section>
                 </div>
             </form>
         </div>
-</div>
+    </div>

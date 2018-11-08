@@ -1,11 +1,11 @@
-﻿// app.js
-var routerApp = angular.module('routerApp', ['ui.router', 'core', 'validationApp', 'ngAnimate', 'ngMaterial', 'ngMessages', 'dx']);
+﻿var routerApp = angular.module('routerApp', ['ui.router', 'core', 'validationApp', 'ngAnimate', 'ngMaterial', 'ngMessages', 'dx']);
 
 routerApp.config(function ($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/login');
 
-    $stateProvider    
+    $stateProvider
+
    
       // Vistes del routeui
 
@@ -13,7 +13,8 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
             url: '/login',
             templateUrl: 'templates/user/login.html',
             controller: 'LoginController',
-            data: {login: false}
+            authenticated: false
+            
         })
     
         .state('phone', {
@@ -38,58 +39,66 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
             params: {
                 telefonSeleccionat: {}
             },
-            data: { login: true }
+            authenticated: true
         })
 
     
     .state('form', {
         url: '/form',
         templateUrl: 'templates/forms/partial-form.html',
-        data: { login: true }
+        authenticated: true
+       
     })
 
     .state('formng', {
         url: '/formNgMessages',
         templateUrl: 'templates/forms/partial-form-ngmessages.html',
-        data: { login: true }
-
+        authenticated: true
+        
     })
     .state('formMaterial', {
         url: '/formMaterial',
         templateUrl: 'templates/forms/partial-form-material.html',
-        data: { login: true }
-    })
+        authenticated: true
+        })
     .state('help', {
         url: '/help',
         templateUrl: 'templates/help.html',
-        data: { login: false }
-    })
+        authenticated: true
+        })
     .state('home', {
         url: '/home',
         templateUrl: 'templates/home.html',
-        data: { login: false }
-    })
+        controller: 'HomeController',
+        authenticated: true
+         })
      .state('contact', {
          url: '/contact',
          templateUrl: 'templates/contact.html',
-         data: { login: false }
-     })
+         authenticated: true
+        })
     .state('taula', {
         url: '/taula',
         templateUrl: 'templates/data-grid.html',
         controller: 'GridController',
-        data: { LoginService: true }
-    })
+        authenticated: true
+        })
     .state('taulaTelefons', {
         url: '/taulaTelefons',
         templateUrl: 'templates/taula-telefons.html',
         controller: 'TelefonsController',
-        data: { LoginService: true }
+        authenticated: true
     })
 
 });
 
 // Controlador llista telefons
+
+routerApp.controller('HomeController',
+ function ($scope, $rootScope, $stateParams, $state, LoginService) {
+     $scope.user = $rootScope.userName;
+
+ })
 
 routerApp.controller('PhoneController', function($scope, $stateParams) {
     $scope.phones = [
@@ -311,51 +320,3 @@ routerApp.controller('DetailController', function ($stateParams, $scope) {
 
     $scope.phone = $stateParams.telefonSeleccionat;
 })
-
-
-// Controlador login
-
-routerApp.run(function ($rootScope, $location, $state, LoginService) {
-    $rootScope.$on('$stateChangeStart',
-      function (event, toState, toParams, fromState, fromParams) {
-          console.log('Changed state to: ' + toState);
-      });
-
-    if (!LoginService.isAuthenticated()) {
-        $state.transitionTo('login');
-    }
-})
-
-routerApp.controller('LoginController', function ($scope, $stateParams, $state, LoginService) {
-
-    $scope.formSubmit = function () {
-        if (LoginService.login($scope.username, $scope.password)) {
-            $scope.error = '';
-            $scope.username = '';
-            $scope.password = '';
-            $state.transitionTo('home');
-        } else {
-            $scope.error = "Nom d'usuari/Contrasenya incorrectes !";
-        }
-    };
-
-})
-
-
-routerApp.factory('LoginService', function () {
-    var admin = 'admin';
-    var pass = 'pass';
-    var isAuthenticated = false;
-
-    return {
-        login: function (username, password) {
-            isAuthenticated = username === admin && password === pass;
-            return isAuthenticated;
-        },
-        isAuthenticated: function () {
-            return isAuthenticated;
-        }
-    };
-
-})
-

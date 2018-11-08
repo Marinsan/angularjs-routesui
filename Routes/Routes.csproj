@@ -235,6 +235,7 @@
     <Content Include="app\img\wallpaper.jpg" />
     <Content Include="app\index.html" />
     <Content Include="app\js\forms.js" />
+    <Content Include="app\js\login.js" />
     <Content Include="app\js\navbar.js" />
     <Content Include="app\js\telefons.js" />
     <Content Include="app\templates\contact.html" />
