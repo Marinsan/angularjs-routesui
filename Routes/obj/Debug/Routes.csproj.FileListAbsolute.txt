@@ -64,3 +64,7 @@ C:\Feina\Projectes\RoutesUI-Phones\Routes\bin\Microsoft.CodeDom.Providers.DotNet
 C:\Feina\Projectes\RoutesUI-Phones\Routes\obj\Debug\Routes.csprojResolveAssemblyReference.cache
 C:\Feina\Projectes\RoutesUI-Phones\Routes\obj\Debug\Routes.dll
 C:\Feina\Projectes\RoutesUI-Phones\Routes\obj\Debug\Routes.pdb
+C:\Feina\Projectes\RoutesUI-Phones\Routes\bin\DevExtreme.AspNet.Data.dll
+C:\Feina\Projectes\RoutesUI-Phones\Routes\bin\Newtonsoft.Json.dll
+C:\Feina\Projectes\RoutesUI-Phones\Routes\bin\DevExtreme.AspNet.Data.xml
+C:\Feina\Projectes\RoutesUI-Phones\Routes\bin\Newtonsoft.Json.xml

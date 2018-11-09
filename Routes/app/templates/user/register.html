@@ -1,0 +1,16 @@
+﻿<form ua-signup ua-error="error-msg">
+    <md-input-container class="md-icon-float md-block">
+        <label>Nom d'usuari</label>
+        <md-icon md-svg-src="img/icons/user.svg" class="name"></md-icon>
+        <input ng-model="username" type="text" required>
+    </md-input-container>
+    <md-input-container class="md-icon-float md-block">
+        <label>Contrasenya</label>
+        <md-icon md-svg-src="img/icons/baseline-vpn_key-24px.svg" class="name"></md-icon>
+        <input ng-model="password" type="password" required>
+    </md-input-container>
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-button class="md-raised md-primary" ng-disabled="userForm.$invalid" ng-click="sumbit" type="sumbit">Crear compte</md-button>
+        <span class="text-danger">{{ error }}</span>
+    </section>
+</form>

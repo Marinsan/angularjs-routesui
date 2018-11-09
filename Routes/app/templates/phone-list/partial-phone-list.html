@@ -23,7 +23,7 @@
     <div class="container-fluid Aligner">
         <div layout="column" layout-align="center center" class="Aligner-item">
             <!--Body content-->
-                <md-card ng-repeat="phone in phones | filter:query | orderBy:orderProp"
+                <md-card ng-model="details" ng-repeat="phone in phones | filter:query | orderBy:orderProp"
                          class="phone-list-item">
                     <md-card-header>
                        

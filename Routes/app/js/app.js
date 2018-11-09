@@ -1,4 +1,4 @@
-﻿var routerApp = angular.module('routerApp', ['ui.router', 'core', 'validationApp', 'ngAnimate', 'ngMaterial', 'ngMessages', 'dx']);
+﻿var routerApp = angular.module('routerApp', ['ui.router', 'core', 'validationApp', 'ngAnimate', 'ngMaterial', 'ngMessages', 'dx', 'ngStorage']);
 
 routerApp.config(function ($stateProvider, $urlRouterProvider) {
 
@@ -13,7 +13,9 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
             url: '/login',
             templateUrl: 'templates/user/login.html',
             controller: 'LoginController',
-            authenticated: false
+            deepStateRedirect: true,
+            sticky: true,
+            public: true, login: true
             
         })
     
@@ -69,7 +71,6 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
     .state('home', {
         url: '/home',
         templateUrl: 'templates/home.html',
-        controller: 'HomeController',
         authenticated: true
          })
      .state('contact', {
@@ -92,19 +93,16 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
     .state('taulaTelefons', {
         url: '/taulaTelefons',
         templateUrl: 'templates/taula-telefons.html',
-        controller: 'TelefonsController',
         authenticated: true
     })
 
 });
 
+routerApp.run(function ($rootScope, $location) {
+    $rootScope.location = $location;
+});
+
 // Controlador llista telefons
-
-routerApp.controller('HomeController',
- function ($scope, $rootScope, $stateParams, $state, LoginService) {
-     $scope.user = $rootScope.userName;
-
- })
 
 routerApp.controller('PhoneController', function($scope, $stateParams) {
     $scope.phones = [

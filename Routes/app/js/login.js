@@ -1,10 +1,10 @@
 ﻿
-angular.module('routerApp').run( function ($rootScope, $location, $state, LoginService) {
+angular.module('routerApp').run(function ($rootScope, $location, $state, LoginService) {
 
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
         console.log('Changed state to: ' + toState)
-
-        if (toState.LoginService.authenticated && !LoginService.isAuthenticated()) {
+        
+        if (toState.authenticated && !LoginService.isAuthenticated()) {
             $state.transitionTo('login');
         }
 
@@ -25,7 +25,6 @@ angular.module('routerApp').controller('LoginController', function ($scope, $sta
 
 })
 
-
 angular.module('routerApp').factory('LoginService', function () {
     var admin = 'admin';
     var pass = 'pass';
@@ -36,7 +35,7 @@ angular.module('routerApp').factory('LoginService', function () {
             isAuthenticated = username === admin && password === pass;
             return isAuthenticated;
         },
-        isAuthenticated: function () {
+        authenticated: function () {
             return isAuthenticated;
         }
     };
