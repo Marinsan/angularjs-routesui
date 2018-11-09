@@ -106,6 +106,7 @@
     <Content Include="app\css\app.animations.css" />
     <Content Include="app\core\checkmark.filter.js" />
     <Content Include="app\core\checkmark.filter.spec.js" />
+    <Content Include="app\js\auth\authenticate.js" />
     <Content Include="app\js\data.js" />
     <Content Include="app\js\grid2.js" />
     <Content Include="app\js\data-grid.js" />
@@ -245,11 +246,12 @@
     <Content Include="app\img\wallpaper.jpg" />
     <Content Include="app\index.html" />
     <Content Include="app\js\forms.js" />
-    <Content Include="app\js\login.js" />
+    <Content Include="app\js\auth\login.js" />
     <Content Include="app\js\navbar.js" />
     <Content Include="app\js\telefons.js" />
     <Content Include="app\lib\angular-locale\angular-local-storage.js" />
     <Content Include="app\lib\angular-locale\ngStorage.js" />
+    <Content Include="app\lib\angular-messages\angular-flash.min.js" />
     <Content Include="app\templates\contact.html" />
     <Content Include="app\templates\data-grid-api.html" />
     <Content Include="app\templates\data-grid.html" />
@@ -259,6 +261,7 @@
     <Content Include="app\templates\help.html" />
     <Content Include="app\templates\home.html" />
     <Content Include="app\templates\menu.html" />
+    <Content Include="app\templates\navbar.html" />
     <Content Include="app\templates\taula-telefons.html" />
     <Content Include="app\templates\toast-template.html" />
     <Content Include="app\templates\user\login.html" />
@@ -394,6 +397,8 @@
     <Content Include="app\lib\angular-messages\angular-messages.js" />
     <Content Include="app\lib\angular-messages\angular-messages.min.js" />
     <Content Include="app\lib\angular-messages\angular-messages.min.js.map" />
+    <Content Include="app\lib\angular-cookies\angular-cookies.js" />
+    <Content Include="app\lib\angular-cookies\angular-cookies.min.js" />
     <Content Include="scripts\i18n\angular-locale_af-na.js" />
     <Content Include="scripts\i18n\angular-locale_af-za.js" />
     <Content Include="scripts\i18n\angular-locale_af.js" />
@@ -1137,6 +1142,7 @@
     <Content Include="views\dxsignin.dxview" />
     <Content Include="views\dxregister.dxview" />
     <Content Include="views\dxconfirmexternal.dxview" />
+    <Content Include="app\lib\angular-cookies\angular-cookies.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

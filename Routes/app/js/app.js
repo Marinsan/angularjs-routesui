@@ -1,4 +1,4 @@
-﻿var routerApp = angular.module('routerApp', ['ui.router', 'core', 'validationApp', 'ngAnimate', 'ngMaterial', 'ngMessages', 'dx', 'ngStorage']);
+﻿var routerApp = angular.module('routerApp', ['ui.router', 'core', 'validationApp', 'ngAnimate', 'ngMaterial', 'ngMessages', 'dx', 'ngStorage', 'ngCookies']);
 
 routerApp.config(function ($stateProvider, $urlRouterProvider) {
 
@@ -6,16 +6,13 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider
 
-   
+    
       // Vistes del routeui
 
         .state('login', {
             url: '/login',
             templateUrl: 'templates/user/login.html',
             controller: 'LoginController',
-            deepStateRedirect: true,
-            sticky: true,
-            public: true, login: true
             
         })
     
@@ -23,79 +20,109 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
             url: '/phone',
             views: {
                 "": {
-                    templateUrl: 'templates/phones/partial-phone.html'
+                    templateUrl: 'templates/phones/partial-phone.html',
+                   
                 },
 
                 'Phones@phone':
                 {
                     templateUrl: 'templates/phone-list/partial-phone-list.html',
-                    controller: 'PhoneController'
+                    controller: 'PhoneController', 
                 },
                 
                 'Details@phone': {
                     
                     templateUrl: 'templates/phone-detail/partial-phone-detail.html',
-                    controller: 'DetailController'
+                    controller: 'DetailController',
+                   
                 }
             },
             params: {
                 telefonSeleccionat: {}
             },
-            authenticated: true
+            
         })
 
     
     .state('form', {
         url: '/form',
         templateUrl: 'templates/forms/partial-form.html',
-        authenticated: true
+        
        
     })
 
     .state('formng', {
         url: '/formNgMessages',
         templateUrl: 'templates/forms/partial-form-ngmessages.html',
-        authenticated: true
+      
         
     })
     .state('formMaterial', {
         url: '/formMaterial',
         templateUrl: 'templates/forms/partial-form-material.html',
-        authenticated: true
+        
         })
     .state('help', {
         url: '/help',
         templateUrl: 'templates/help.html',
-        authenticated: true
+       
         })
     .state('home', {
         url: '/home',
         templateUrl: 'templates/home.html',
-        authenticated: true
+        
          })
      .state('contact', {
          url: '/contact',
          templateUrl: 'templates/contact.html',
-         authenticated: true
+         
         })
     .state('taula', {
         url: '/taula',
         templateUrl: 'templates/data-grid.html',
         controller: 'GridController',
-        authenticated: true
+        
     })
         .state('taulaapi', {
             url: '/taula_api',
             templateUrl: 'templates/data-grid-api.html',
             controller: 'GridController2',
-            authenticated: true
+           
         })
     .state('taulaTelefons', {
         url: '/taulaTelefons',
         templateUrl: 'templates/taula-telefons.html',
-        authenticated: true
+       
     })
 
+});
+
+function run($rootScope, $location, $cookies, $http) {
+    // keep user logged in after page refresh
+    $rootScope.globals = $cookies.getObject('globals') || {};
+    if ($rootScope.globals.currentUser) {
+        $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata;
+    }
+
+    $rootScope.$on('$locationChangeStart', function (event, next, current) {
+        // redirect to login page if not logged in and trying to access a restricted page
+        var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
+        var loggedIn = $rootScope.globals.currentUser;
+        if (restrictedPage && !loggedIn) {
+            $location.path('/login');
+        }
+    });
+}
+
+routerApp.run(function ($rootScope, $location, $state, LoginService) {
+    $rootScope.$on('$stateChangeStart',
+      function (event, toState, toParams, fromState, fromParams) {
+          console.log('Changed state to: ' + toState);
+      });
+
+    if (LoginService.isAuthenticated()) {
+        $location.path('/login');
+    }
 });
 
 routerApp.run(function ($rootScope, $location) {
