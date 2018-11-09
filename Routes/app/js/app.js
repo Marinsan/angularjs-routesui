@@ -97,33 +97,19 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
 
 });
 
-function run($rootScope, $location, $cookies, $http) {
-    // keep user logged in after page refresh
-    $rootScope.globals = $cookies.getObject('globals') || {};
-    if ($rootScope.globals.currentUser) {
-        $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata;
-    }
+routerApp.run(function ($rootScope, $location, $cookies, $http) {
 
-    $rootScope.$on('$locationChangeStart', function (event, next, current) {
-        // redirect to login page if not logged in and trying to access a restricted page
-        var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
-        var loggedIn = $rootScope.globals.currentUser;
+    $rootScope.$on('$stateChangeStart', function (event, next, current) {
+
+        var restrictedPage = $.inArray($location.path(), ['/login']) === -1
+
+        var loggedIn = LoginService.isAuthenticated();
+
         if (restrictedPage && !loggedIn) {
             $location.path('/login');
         }
     });
-}
-
-routerApp.run(function ($rootScope, $location, $state, LoginService) {
-    $rootScope.$on('$stateChangeStart',
-      function (event, toState, toParams, fromState, fromParams) {
-          console.log('Changed state to: ' + toState);
-      });
-
-    if (LoginService.isAuthenticated()) {
-        $location.path('/login');
-    }
-});
+})
 
 routerApp.run(function ($rootScope, $location) {
     $rootScope.location = $location;
