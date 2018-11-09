@@ -82,6 +82,12 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: 'templates/data-grid.html',
         controller: 'GridController',
         authenticated: true
+    })
+        .state('taulaapi', {
+            url: '/taula_api',
+            templateUrl: 'templates/data-grid-api.html',
+            controller: 'GridController2',
+            authenticated: true
         })
     .state('taulaTelefons', {
         url: '/taulaTelefons',

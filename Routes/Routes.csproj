@@ -98,6 +98,7 @@
     <Content Include="app\css\app.animations.css" />
     <Content Include="app\core\checkmark.filter.js" />
     <Content Include="app\core\checkmark.filter.spec.js" />
+    <Content Include="app\js\grid2.js" />
     <Content Include="app\js\data-grid.js" />
     <Content Include="app\js\dialog.js" />
     <Content Include="app\img\favicon.png" />
@@ -239,6 +240,7 @@
     <Content Include="app\js\navbar.js" />
     <Content Include="app\js\telefons.js" />
     <Content Include="app\templates\contact.html" />
+    <Content Include="app\templates\data-grid-api.html" />
     <Content Include="app\templates\data-grid.html" />
     <Content Include="app\templates\forms\partial-form-material.html" />
     <Content Include="app\templates\forms\partial-form-ngmessages.html" />

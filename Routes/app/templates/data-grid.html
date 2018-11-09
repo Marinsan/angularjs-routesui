@@ -1,9 +1,12 @@
-﻿<div class="dx-viewport">
-    <div class="demo-container" ng-app="routerApp" ng-controller="GridController">
-        <div id="gridContainer" dx-data-grid="dataGridOptions" dx-item-alias="discount">
-            <div data-options="dxTemplate:{ name:'discountCellTemplate' }">
-                <div class="chart-cell">
-                    <div dx-bullet="{
+﻿<div layout layout-align="center center">
+    <br />
+    <md-whiteframe class="md-whiteframe-24dp" layout layout-align="center center">
+        <div class="dx-viewport">
+            <div class="demo-container" ng-app="routerApp" ng-controller="GridController">
+                <div id="gridContainer" dx-data-grid="dataGridOptions" dx-item-alias="discount">
+                    <div data-options="dxTemplate:{ name:'discountCellTemplate' }">
+                        <div class="chart-cell">
+                            <div dx-bullet="{
                         onIncidentOccurred: null,
                         size: {
                             width: 150,
@@ -29,8 +32,10 @@
                             zIndex: 5
                         }
                     }"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </md-whiteframe>
 </div>
