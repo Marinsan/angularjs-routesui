@@ -1,24 +1,25 @@
-﻿<div class="form-group navbar-center">
-    <form class="navbar-form" align="center"  layout="row">
-        &nbsp;
+﻿
+
+    <div class="container-fluid Aligner">
+        <div layout="column" layout-align="center center" class="Aligner-item">
+            <div class="form-group navbar-center">
+                <form class="navbar-form" align="center" layout="row">
+                    &nbsp;
                     <md-input-container class="md-icon-float md-block col-md-4">
                         <label>Cerca el model</label>
                         <md-icon md-svg-src="img/icons/baseline-search-24px.svg" class="name"></md-icon>
-                        <input ng-model="query" type="text"  name="quest" required>
+                        <input ng-model="query" type="text" name="quest" required>
                     </md-input-container>
 
-                    <md-input-container  class="md-block col-md-4">
+                    <md-input-container class="md-block col-md-4">
                         <label>Ordenar</label>
                         <md-select name="Ordenar" ng-model="orderProp">
                             <md-option value="name">Alfabeticament</md-option>
                             <md-option value="age">Més nou</md-option>
                         </md-select>
                     </md-input-container>
-    </form>
-    </div>
-
-    <div class="container-fluid Aligner">
-        <div layout="column" layout-align="center center" class="Aligner-item">
+                </form>
+            </div>
             <!--Body content-->
                 <md-card ng-repeat="phone in phones | filter:query | orderBy:orderProp"
                          class="phone-list-item">
