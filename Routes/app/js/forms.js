@@ -52,23 +52,6 @@ routerApp.controller('MessageController', function ($scope, $mdToast, $mdDialog)
           });
     };
 
-    $scope.openMoreInfo = function (e) {
-        if (routerApp) return;
-        routerApp = true;
-
-        $mdDialog
-          .show($mdDialog
-            .alert()
-            .title('More info goes here.')
-            .textContent('Something witty.')
-            .ariaLabel('More info')
-            .ok('Got it')
-            .targetEvent(e)
-          )
-          .then(function () {
-              routerApp = false;
-          });
-    };
 });
 
 // Controlador Imatge Carta contact

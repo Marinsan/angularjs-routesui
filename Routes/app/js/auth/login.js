@@ -3,7 +3,7 @@
 
     var app = angular.module('routerApp');
 
-    app.controller('LoginController', function ($scope, $rootScope, $stateParams, $state, LoginService) {
+    app.controller('LoginController', function ($scope, $rootScope, $stateParams, $state, LoginService, $mdToast, $mdDialog) {
 
         $scope.formSubmit = function () {
             if (LoginService.login($scope.username, $scope.password)) {
@@ -12,7 +12,11 @@
                 $scope.password = '';
                 $state.transitionTo('home');
             } else {
-                $scope.error = "Nom d'usuari o contrasenya incorrectes !";
+                    $mdToast.show({
+                        hideDelay: 300,
+                        position: 'top right',
+                        templateUrl: 'templates/dialog-access.html'
+                    })
             }
         };
 

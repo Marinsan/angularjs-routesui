@@ -1,4 +1,4 @@
-﻿var routerApp = angular.module('routerApp', ['ui.router', 'core', 'validationApp', 'ngAnimate', 'ngMaterial', 'ngMessages', 'dx', 'ngStorage', 'ngCookies']);
+﻿var routerApp = angular.module('routerApp', ['ui.router', 'core', 'validationApp', 'ngAnimate', 'ngMaterial', 'ngMessages', 'dx', 'ngStorage', 'ngCookies', 'ngMap']);
 
 routerApp.config(function ($stateProvider, $urlRouterProvider) {
 
@@ -93,6 +93,11 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
         url: '/taulaTelefons',
         templateUrl: 'templates/taula-telefons.html',
        
+    })
+    .state('mapa', {
+        url: '/mapa',
+        templateUrl: 'templates/map.html',
+
     })
 
 });
