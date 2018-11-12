@@ -1,22 +1,19 @@
-﻿<div>
-    <form class="navbar-form" align="center">
+﻿<div class="form-group navbar-center">
+    <form class="navbar-form" align="center"  layout="row">
         &nbsp;
-        <div class="form-group navbar-center">
-                <div layout="row" layout-align="center" flex>
-                    <md-input-container>
-                        <label><md-icon md-svg-src="img/icons/baseline-search-24px.svg"></md-icon> Cerca el model</label>
-                        <input type="text" name="quest" ng-model="query" />
+                    <md-input-container class="md-icon-float md-block col-md-4">
+                        <label>Cerca el model</label>
+                        <md-icon md-svg-src="img/icons/baseline-search-24px.svg" class="name"></md-icon>
+                        <input ng-model="query" type="text"  name="quest" required>
                     </md-input-container>
 
-                    <md-input-container>
+                    <md-input-container  class="md-block col-md-4">
                         <label>Ordenar</label>
                         <md-select name="Ordenar" ng-model="orderProp">
                             <md-option value="name">Alfabeticament</md-option>
                             <md-option value="age">Més nou</md-option>
                         </md-select>
                     </md-input-container>
-                </div>
-        </div>
     </form>
     </div>
 

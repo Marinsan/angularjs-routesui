@@ -109,6 +109,7 @@
     <Content Include="app\img\icons\baseline-list-24px.svg" />
     <Content Include="app\img\icons\baseline-map-24px.svg" />
     <Content Include="app\img\icons\baseline-search-24px.svg" />
+    <Content Include="app\img\Lockicon.png" />
     <Content Include="app\js\auth\authenticate.js" />
     <Content Include="app\js\data.js" />
     <Content Include="app\js\grid2.js" />
@@ -262,6 +263,7 @@
     <Content Include="app\templates\contact.html" />
     <Content Include="app\templates\data-grid-api.html" />
     <Content Include="app\templates\data-grid.html" />
+    <Content Include="app\templates\dialog-access.html" />
     <Content Include="app\templates\forms\partial-form-material.html" />
     <Content Include="app\templates\forms\partial-form-ngmessages.html" />
     <Content Include="app\templates\forms\partial-form.html" />
@@ -273,7 +275,6 @@
     <Content Include="app\templates\taula-telefons.html" />
     <Content Include="app\templates\toast-template.html" />
     <Content Include="app\templates\user\login.html" />
-    <Content Include="app\templates\user\register.html" />
     <Content Include="App_Data\Telefons.mdf" />
     <Content Include="App_Data\Telefons_log.ldf">
       <DependentUpon>Telefons.mdf</DependentUpon>

@@ -12,15 +12,32 @@
                 $scope.password = '';
                 $state.transitionTo('home');
             } else {
+
                     $mdToast.show({
-                        hideDelay: 300,
+                        hideDelay: 3000,
                         position: 'top right',
+                        controller: 'ToastCtrl',
                         templateUrl: 'templates/dialog-access.html'
                     })
             }
         };
 
     });
+
+    app.controller('ToastCtrl', function ($scope, $mdToast, $mdDialog) {
+
+        var isDlgOpen;
+
+        $scope.closeToast = function() {
+            if (isDlgOpen) return;
+
+            $mdToast
+              .hide()
+              .then(function() {
+                  isDlgOpen = false;
+              });
+        };
+    })
 
     app.factory('LoginService', function () {
         var admin = 'admin';
