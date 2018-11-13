@@ -99,6 +99,11 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: 'templates/map.html',
 
     })
+    .state('todo', {
+        url: '/todo',
+        templateUrl: 'templates/todo.html',
+
+    })
 
 });
 
@@ -107,14 +112,12 @@ routerApp.run(['$rootScope', '$location', '$cookieStore', '$http',
 
         $rootScope.globals = $cookieStore.get('globals') || {};
         if ($rootScope.globals.currentUser) {
-            console.log('Page refresh');
             $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata;
         }
 
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
 
             if ($location.path() !== '/login' && !$rootScope.globals.currentUser) {
-                console.log('Do not go back');
                 $location.path('/login');
             }
         });

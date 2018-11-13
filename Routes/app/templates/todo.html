@@ -1,0 +1,20 @@
+﻿<div ng-controller="todoController">
+
+    <form ng-submit="add()">
+        <md-input-container class="md-icon-float md-block">
+            <label>Telefons...</label>
+            <input ng-model="title" type="text">
+        </md-input-container> 
+    </form>
+    
+
+    <md-subheader>Telefons a comprar</md-subheader>
+    <md-list-item ng-repeat="t in tasks track by $index" class="noright">{{ t }}
+        <md-button ng-controller="AppCtrl" class="md-primary md-raised" ng-click="showAlert($event)">
+            Eliminar
+        </md-button> 
+        <md-checkbox class="md-secondary" ></md-checkbox>
+    </md-list-item>
+
+
+</div>

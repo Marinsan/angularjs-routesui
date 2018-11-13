@@ -254,6 +254,8 @@
     <Content Include="app\js\map.js" />
     <Content Include="app\js\navbar.js" />
     <Content Include="app\js\telefons.js" />
+    <Content Include="app\js\todo-dialog.js" />
+    <Content Include="app\js\todo.js" />
     <Content Include="app\lib\angular-cookies\angular-cookies.js" />
     <Content Include="app\lib\angular-google-maps\angular-google-maps.min.js" />
     <Content Include="app\lib\angular-google-maps\lodash.underscore.min.js" />
@@ -275,6 +277,7 @@
     <Content Include="app\templates\navbar.html" />
     <Content Include="app\templates\taula-telefons.html" />
     <Content Include="app\templates\toast-template.html" />
+    <Content Include="app\templates\todo.html" />
     <Content Include="app\templates\user\login.html" />
     <Content Include="App_Data\Telefons.mdf" />
     <Content Include="App_Data\Telefons_log.ldf">
