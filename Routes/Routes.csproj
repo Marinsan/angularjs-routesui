@@ -254,6 +254,7 @@
     <Content Include="app\js\map.js" />
     <Content Include="app\js\navbar.js" />
     <Content Include="app\js\telefons.js" />
+    <Content Include="app\lib\angular-cookies\angular-cookies.js" />
     <Content Include="app\lib\angular-google-maps\angular-google-maps.min.js" />
     <Content Include="app\lib\angular-google-maps\lodash.underscore.min.js" />
     <Content Include="app\lib\angular-google-maps\ng-map.min.js" />
@@ -406,8 +407,6 @@
     <Content Include="app\lib\angular-messages\angular-messages.js" />
     <Content Include="app\lib\angular-messages\angular-messages.min.js" />
     <Content Include="app\lib\angular-messages\angular-messages.min.js.map" />
-    <Content Include="app\lib\angular-cookies\angular-cookies.js" />
-    <Content Include="app\lib\angular-cookies\angular-cookies.min.js" />
     <Content Include="scripts\i18n\angular-locale_af-na.js" />
     <Content Include="scripts\i18n\angular-locale_af-za.js" />
     <Content Include="scripts\i18n\angular-locale_af.js" />
@@ -1151,7 +1150,6 @@
     <Content Include="views\dxsignin.dxview" />
     <Content Include="views\dxregister.dxview" />
     <Content Include="views\dxconfirmexternal.dxview" />
-    <Content Include="app\lib\angular-cookies\angular-cookies.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1228,7 +1226,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52088</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:52088/</IISUrl>
+          <IISUrl>http://localhost:52188/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -1,59 +1,55 @@
-﻿(function () {
-    'use strict';
+﻿angular.module('routerApp').controller('ToastCtrl', function ($scope, $mdToast, $mdDialog) {
 
-    var app = angular.module('routerApp');
+    var isDlgOpen;
 
-    app.controller('LoginController', function ($scope, $rootScope, $stateParams, $state, LoginService, $mdToast, $mdDialog) {
+    $scope.closeToast = function () {
+        if (isDlgOpen) return;
 
-        $scope.formSubmit = function () {
-            if (LoginService.login($scope.username, $scope.password)) {
-                $scope.error = '';
-                $scope.username = '';
-                $scope.password = '';
-                $state.transitionTo('home');
-            } else {
+        $mdToast
+          .hide()
+          .then(function () {
+              isDlgOpen = false;
+          });
+    };
+})
 
-                    $mdToast.show({
-                        hideDelay: 3000,
-                        position: 'top right',
-                        controller: 'ToastCtrl',
-                        templateUrl: 'templates/dialog-access.html'
-                    })
-            }
-        };
+angular.module('routerApp')
+  .controller('LoginController', function ($scope, $state, $rootScope, AuthenticationService, $mdToast, $mdDialog) {
 
-    });
+      var vm = this;
 
-    app.controller('ToastCtrl', function ($scope, $mdToast, $mdDialog) {
+      AuthenticationService.ClearCredentials();
 
-        var isDlgOpen;
+      vm.logout = function () {
 
-        $scope.closeToast = function() {
-            if (isDlgOpen) return;
+          $state.transitionTo('login');
 
-            $mdToast
-              .hide()
-              .then(function() {
-                  isDlgOpen = false;
-              });
-        };
-    })
+      }
 
-    app.factory('LoginService', function () {
-        var admin = 'admin';
-        var pass = 'pass';
-        var isAuthenticated = false;
+      vm.login = function (obj) {
+          vm.loginObj = obj;
 
-        return {
-            login: function (username, password) {
-                isAuthenticated = username === admin && password === pass;
-                return isAuthenticated;
-            },
-            isAuthenticated: function () {
-                return isAuthenticated;
-            }
-        };
+          AuthenticationService.Login(vm.loginObj.username, vm.loginObj.password, 'admin', 'pass', function (response) {
+              if (response.success) {
+                  AuthenticationService.SetCredentials(vm.loginObj.username, vm.loginObj.password);
+                  console.log("Success");
+                  $state.transitionTo('home');
+              } else {
+                  $mdToast.show({
+                      hideDelay: 3000,
+                      position: 'top right',
+                      controller: 'ToastCtrl',
+                      templateUrl: 'templates/dialog-access.html'
+                  })
+              }
+          });
+      };
 
-    });
+      vm.reset = function () {
+          vm.loginObj.username = "";
+          vm.loginObj.password = "";
+          vm.error = "";
+          vm.loginError = false;
+      };
 
-})();
+  });
