@@ -109,6 +109,12 @@
     <Content Include="app\img\icons\baseline-list-24px.svg" />
     <Content Include="app\img\icons\baseline-map-24px.svg" />
     <Content Include="app\img\icons\baseline-search-24px.svg" />
+    <Content Include="app\img\icons\check.svg" />
+    <Content Include="app\img\icons\circle_outline.svg" />
+    <Content Include="app\img\icons\close.svg" />
+    <Content Include="app\img\icons\delete.svg" />
+    <Content Include="app\img\icons\edit.svg" />
+    <Content Include="app\img\icons\note_add.svg" />
     <Content Include="app\img\Lockicon.png" />
     <Content Include="app\js\auth\authenticate.js" />
     <Content Include="app\js\data.js" />
@@ -267,6 +273,7 @@
     <Content Include="app\templates\data-grid-api.html" />
     <Content Include="app\templates\data-grid.html" />
     <Content Include="app\templates\dialog-access.html" />
+    <Content Include="app\templates\dialog-todo.html" />
     <Content Include="app\templates\forms\partial-form-material.html" />
     <Content Include="app\templates\forms\partial-form-ngmessages.html" />
     <Content Include="app\templates\forms\partial-form.html" />
