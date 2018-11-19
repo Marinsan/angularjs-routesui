@@ -1,0 +1,63 @@
+﻿<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+</style>
+
+<div ng-app="routerApp">
+    <div ng-controller="TaulaController" ng-init="GetAllData()">
+
+        <div layout layout-align="center center" class="text-center">
+            <pre><h2>Taula Empleats</h2></pre>
+        </div>
+        <br />
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Ciutat</th>
+                        <th>Anys</th>
+                        <th>Accions</th>
+                    </tr>
+                </thead>
+
+                <tbody ng-repeat="Emp in employees">
+                    <tr>
+                        <td>{{Emp.Emp_Id}}</td>
+                        <td>
+                            {{Emp.Emp_Name}}
+                        </td>
+                        <td>
+                            {{Emp.Emp_City}}
+                        </td>
+                        <td>
+                            {{Emp.Emp_Age}}
+                        </td>
+                        <td>
+                            <md-button ng-controller="deleteDialog" class="md-icon-button md-warn" ng-click="showAdvanced_delete_taula($event)">
+                                <md-icon title="Eliminar" md-svg-icon="img/icons/delete.svg"></md-icon>
+                            </md-button>
+                            <md-button ng-click="UpdateEmp(Emp)" class="md-icon-button">
+                                <md-icon title="Editar" md-svg-icon="img/icons/edit.svg"></md-icon>
+                            </md-button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        <button ng-controller="CreateEmployeeDialogController" ng-click="showAdvanced_create_taula($event)" class="md-icon-button">Afegir</button>
+</div>
+</div>

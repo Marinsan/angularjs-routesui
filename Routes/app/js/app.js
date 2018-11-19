@@ -89,9 +89,10 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
             controller: 'GridController2',
            
         })
-    .state('taulaTelefons', {
-        url: '/taulaTelefons',
-        templateUrl: 'templates/taula-telefons.html',
+    .state('Taula_db', {
+        url: '/Employee',
+        templateUrl: 'templates/taula-db.html',
+        controller: 'TaulaController'
        
     })
     .state('mapa', {

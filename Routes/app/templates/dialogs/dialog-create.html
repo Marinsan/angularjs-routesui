@@ -1,0 +1,40 @@
+﻿<div class="form-horizontal" role="form" ng-controller="TaulaController">
+    <div class="container">
+        <div class="row">
+            <h2>
+                <span id="spn">Add New Employee</span>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-lg-4">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Name:</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="Name" ng-model="EmpName">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">City:</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="inputPassword" placeholder="City" ng-model="EmpCity">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Age:</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="inputLabel3" placeholder="Age" ng-model="EmpAge">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-lg-4">
+                <input type="button" id="btnSave" class="form-control btn-space" value="Submit" ng-click="InsertData()" />
+            </div>
+        </div>
+    </div>
+</div>
