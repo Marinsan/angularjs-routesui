@@ -25,7 +25,7 @@ routerApp.controller('FormController', function ($scope) {
     };
 });
 
-// Configuracio per als missatges arial-label
+// Configuracio per als missatges arial-label deshabilitar
 
 routerApp.config(['$mdAriaProvider', function ($mdAriaProvider) {
     $mdAriaProvider.disableWarnings();

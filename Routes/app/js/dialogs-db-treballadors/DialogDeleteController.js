@@ -1,26 +1,11 @@
-﻿angular.module('dialogDemo3', ['ngMaterial']).config(function ($mdThemingProvider) {
-    $mdThemingProvider.theme('red')
-      .primaryPalette('red');
+﻿angular.module('routerApp')
 
-    $mdThemingProvider.theme('blue')
-      .primaryPalette('blue');
+.controller('DialogEmployeeDeleteController', function ($scope, $mdDialog, $interval) {
 
-})
-.controller('AppCtrl', function ($scope, $mdDialog, $interval) {
-    $scope.theme = 'red';
-
-    var isThemeRed = true;
-
-    $interval(function () {
-        $scope.theme = isThemeRed ? 'blue' : 'red';
-
-        isThemeRed = !isThemeRed;
-    }, 2000);
-
-    $scope.showAdvanced = function (ev) {
+    $scope.showAdvanced_delete_taula = function (ev) {
         $mdDialog.show({
-            controller: DialogController,
-            templateUrl: 'dialog1.tmpl.html',
+            controller: DialogControllerDeleteEmploye,
+            templateUrl: 'templates/dialogs/dialog-delete.html',
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: true
@@ -32,7 +17,7 @@
         });
     };
 
-    function DialogController($scope, $mdDialog) {
+    function DialogControllerDeleteEmploye($scope, $mdDialog) {
         $scope.hide = function () {
             $mdDialog.hide();
         };

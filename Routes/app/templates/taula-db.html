@@ -47,7 +47,8 @@
                             {{Emp.Emp_Age}}
                         </td>
                         <td>
-                            <md-button ng-controller="deleteDialog" class="md-icon-button md-warn" ng-click="showAdvanced_delete_taula($event)">
+                           <!-- <md-button ng-controller="DialogEmployeeDeleteController" class="md-icon-button md-warn" ng-click="showAdvanced_delete_taula($event)"> -->
+                                <md-button  class="md-icon-button md-warn" alue="Delete" ng-click="DeleteEmp(Emp)">
                                 <md-icon title="Eliminar" md-svg-icon="img/icons/delete.svg"></md-icon>
                             </md-button>
                             <md-button ng-click="UpdateEmp(Emp)" class="md-icon-button">
