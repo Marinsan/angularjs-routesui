@@ -107,7 +107,7 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
     })
     .state('Customers', {
         url: '/Customers',
-        templateUrl: 'templates/data-db/data-customers.html',
+        templateUrl: 'templates/data-db/data-customers.cshtml',
 
     })
 

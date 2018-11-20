@@ -325,7 +325,7 @@
     <Content Include="app\lib\angular-ngtable\ng-table.min.css" />
     <Content Include="app\lib\angular-ngtable\ng-table.min.js" />
     <Content Include="app\templates\contact.html" />
-    <Content Include="app\templates\data-db\data-customers.html" />
+    <None Include="app\templates\data-db\data-customers.cshtml" />
     <Content Include="app\templates\data-devextrem\data-grid-api.html" />
     <Content Include="app\templates\data-devextrem\data-grid.html" />
     <Content Include="app\templates\dialogs\dialog-access.html" />
