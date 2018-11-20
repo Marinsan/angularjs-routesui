@@ -79,13 +79,13 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
         })
     .state('taula', {
         url: '/taula',
-        templateUrl: 'templates/data-grid.html',
+        templateUrl: 'templates/data-devextrem/data-grid.html',
         controller: 'GridController',
         
     })
         .state('taulaapi', {
             url: '/taula_api',
-            templateUrl: 'templates/data-grid-api.html',
+            templateUrl: 'templates/data-devextrem/data-grid-api.html',
             controller: 'GridController2',
            
         })

@@ -14,13 +14,15 @@
         background-color: #f5f5f5;
     }
 </style>
-
-<div ng-app="routerApp">
     <div ng-controller="TaulaController" ng-init="GetAllData()">
 
         <div layout layout-align="center center" class="text-center">
-            <pre><h2>Taula Empleats</h2></pre>
+            <pre><h2>Taula Treballadors</h2></pre>
         </div>
+        <div layout layout-align="center center">
+            <md-button class="md-raised md-primary" ng-controller="CreateEmployeeDialogController" ng-click="showAdvanced_create_taula($event)" >Afegir</md-button>
+        </div>
+        
         <br />
 
             <table>
@@ -33,8 +35,11 @@
                         <th>Accions</th>
                     </tr>
                 </thead>
-
+               <!-- <div layout="row" layout-sm="column" layout-align="center center">
+                    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                </div>-->
                 <tbody ng-repeat="Emp in employees">
+
                     <tr>
                         <td>{{Emp.Emp_Id}}</td>
                         <td>
@@ -47,8 +52,7 @@
                             {{Emp.Emp_Age}}
                         </td>
                         <td>
-                           <!-- <md-button ng-controller="DialogEmployeeDeleteController" class="md-icon-button md-warn" ng-click="showAdvanced_delete_taula($event)"> -->
-                                <md-button  class="md-icon-button md-warn" alue="Delete" ng-click="DeleteEmp(Emp)">
+                            <md-button class="md-icon-button md-warn" value="Delete" ng-controller="DialogEmployeeDeleteController" ng-click="showAdvanced_delete_taula($event)">
                                 <md-icon title="Eliminar" md-svg-icon="img/icons/delete.svg"></md-icon>
                             </md-button>
                             <md-button ng-click="UpdateEmp(Emp)" class="md-icon-button">
@@ -58,7 +62,4 @@
                     </tr>
                 </tbody>
             </table>
-
-        <button ng-controller="CreateEmployeeDialogController" ng-click="showAdvanced_create_taula($event)" class="md-icon-button">Afegir</button>
-</div>
 </div>

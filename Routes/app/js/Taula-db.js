@@ -1,5 +1,5 @@
 ﻿var app = angular.module('routerApp');
-app.controller("TaulaController", function ($scope, $http) {
+app.controller("TaulaController", function ($scope, $http, $interval) {
 
     $scope.InsertData = function () {
         var Action = document.getElementById("btnSave").getAttribute("value");
@@ -43,12 +43,28 @@ app.controller("TaulaController", function ($scope, $http) {
             })
         }
     }
+
     $scope.GetAllData = function () {
+        
         $http({
             method: "get",
             url: "http://localhost:52188/Employee/Get_AllEmployee"
+
         }).then(function (response) {
             $scope.employees = response.data;
+            var self = this;
+
+            self.activated = true;
+            self.determinateValue = 30;
+
+            $interval(function () {
+
+                self.determinateValue += 1;
+                if (self.determinateValue > 100) {
+                    self.determinateValue = 30;
+                }
+
+            }, 100);
         }, function ($scope, $mdToast, $mdDialog) {
             $scope.showCustomToast = function () {
                 $mdToast.show({
@@ -79,6 +95,7 @@ app.controller("TaulaController", function ($scope, $http) {
             $scope.GetAllData();
         })
     };
+
     $scope.UpdateEmp = function (Emp) {
         document.getElementById("EmpID_").value = Emp.Emp_Id;
         $scope.EmpName = Emp.Emp_Name;

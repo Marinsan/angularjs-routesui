@@ -1,8 +1,21 @@
 ﻿angular.module('routerApp')
+    
+.config(['$mdAriaProvider', function ($mdAriaProvider) {
+    $mdAriaProvider.disableWarnings();
+}])
 
 .controller('CreateEmployeeDialogController', function ($scope, $mdDialog, $interval) {
+
+    $scope.submitForm = function (isValid) {
+
+        if (isValid) {
+            alert('our form is amazing');
+        }
+
+    };
+
     $scope.status = '  ';
-    $scope.customFullscreen = false;
+    $scope.customFullscreen = true;
 
     $scope.showAdvanced_create_taula = function (ev) {
         $mdDialog.show({
@@ -13,11 +26,6 @@
             clickOutsideToClose: false,
             fullscreen: $scope.customFullscreen
         })
-        .then(function (answer) {
-            $scope.status = 'You said the information was "' + answer + '".';
-        }, function () {
-            $scope.status = 'You cancelled the dialog.';
-        });
     };
 
     function CreateDialogController($scope, $mdDialog) {

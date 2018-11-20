@@ -154,7 +154,7 @@
   <ItemGroup>
     <Content Include="app\css\app.css" />
     <Content Include="app\css\app.animations.css" />
-    <Content Include="app\js\SnackbarsControllers.js" />
+    <Content Include="app\js\Snackbars.js" />
     <Content Include="app\lib\core\checkmark.filter.js" />
     <Content Include="app\lib\core\checkmark.filter.spec.js" />
     <Content Include="app\img\icons\baseline-list-24px.svg" />
@@ -168,12 +168,11 @@
     <Content Include="app\img\icons\note_add.svg" />
     <Content Include="app\img\Lockicon.png" />
     <Content Include="app\js\auth\authenticate.js" />
-    <Content Include="app\js\data.js" />
-    <Content Include="app\js\dialogs-db-treballadors\DialogCreateController.js" />
-    <Content Include="app\js\dialogs-db-treballadors\DialogDeleteController.js" />
-    <Content Include="app\js\grid2.js" />
-    <Content Include="app\js\data-grid.js" />
-    <Content Include="app\js\dialog.js" />
+    <Content Include="app\js\data-devextrem\data.js" />
+    <Content Include="app\js\dialogs-db-treballadors\DialogCreate.js" />
+    <Content Include="app\js\dialogs-db-treballadors\DialogDelete.js" />
+    <Content Include="app\js\data-devextrem\grid2.js" />
+    <Content Include="app\js\data-devextrem\data-grid.js" />
     <Content Include="app\img\favicon.png" />
     <Content Include="app\img\icons\accelerometer.png" />
     <Content Include="app\img\icons\at-symbol.svg" />
@@ -308,13 +307,13 @@
     <Content Include="app\img\user.jpg" />
     <Content Include="app\img\wallpaper.jpg" />
     <Content Include="app\index.html" />
-    <Content Include="app\js\forms.js" />
+    <Content Include="app\js\form\forms.js" />
     <Content Include="app\js\auth\login.js" />
     <Content Include="app\js\map.js" />
     <Content Include="app\js\navbar.js" />
-    <Content Include="app\js\TaulaController.js" />
-    <Content Include="app\js\todo-dialog.js" />
-    <Content Include="app\js\todo.js" />
+    <Content Include="app\js\Taula-db.js" />
+    <Content Include="app\js\todo\todo-dialog.js" />
+    <Content Include="app\js\todo\todo.js" />
     <Content Include="app\lib\angular-cookies\angular-cookies.js" />
     <Content Include="app\lib\angular-google-maps\angular-google-maps.min.js" />
     <Content Include="app\lib\angular-google-maps\lodash.underscore.min.js" />
@@ -325,10 +324,10 @@
     <Content Include="app\lib\angular-ngtable\ng-table.min.css" />
     <Content Include="app\lib\angular-ngtable\ng-table.min.js" />
     <Content Include="app\templates\contact.html" />
-    <Content Include="app\templates\data-grid-api.html" />
-    <Content Include="app\templates\data-grid.html" />
-    <Content Include="app\templates\dialog-access.html" />
-    <Content Include="app\templates\dialog-todo.html" />
+    <Content Include="app\templates\data-devextrem\data-grid-api.html" />
+    <Content Include="app\templates\data-devextrem\data-grid.html" />
+    <Content Include="app\templates\dialogs\dialog-access.html" />
+    <Content Include="app\templates\dialogs\dialog-todo.html" />
     <Content Include="app\templates\dialogs\dialog-delete.html" />
     <Content Include="app\templates\snackbar\snackbar-add-ok.html" />
     <Content Include="app\templates\dialogs\dialog-create.html" />
@@ -343,7 +342,7 @@
     <Content Include="app\templates\navbar.html" />
     <Content Include="app\templates\snackbar\snackbar-error.html" />
     <Content Include="app\templates\taula-db.html" />
-    <Content Include="app\templates\toast-template.html" />
+    <Content Include="app\templates\snackbar\snackbar-enviat.html" />
     <Content Include="app\templates\todo.html" />
     <Content Include="app\templates\user\login.html" />
     <Content Include="App_Data\Employees.mdf" />
@@ -498,7 +497,6 @@
     <Content Include="app\lib\angular-messages\angular-messages.min.js.map" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
-    <Content Include="scripts\dialog-delete-ok.html" />
     <Content Include="scripts\i18n\angular-locale_af-na.js" />
     <Content Include="scripts\i18n\angular-locale_af-za.js" />
     <Content Include="scripts\i18n\angular-locale_af.js" />

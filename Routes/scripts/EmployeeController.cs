@@ -13,11 +13,7 @@ namespace Routes.Controllers
         {
             return View();
         }
-        /// <summary>  
-        ///   
-        /// Get All Employee  
-        /// </summary>  
-        /// <returns></returns>  
+ 
         public JsonResult Get_AllEmployee()
         {
             using (EmployeesEntities Obj = new EmployeesEntities())
@@ -26,11 +22,8 @@ namespace Routes.Controllers
                 return Json(Emp, JsonRequestBehavior.AllowGet);
             }
         }
-        /// <summary>  
-        /// Get Employee With Id  
-        /// </summary>  
-        /// <param name="Id"></param>  
-        /// <returns></returns>  
+
+
         public JsonResult Get_EmployeeById(string Id)
         {
             using (EmployeesEntities Obj = new EmployeesEntities())
@@ -39,11 +32,8 @@ namespace Routes.Controllers
                 return Json(Obj.Employee.Find(EmpId), JsonRequestBehavior.AllowGet);
             }
         }
-        /// <summary>  
-        /// Insert New Employee  
-        /// </summary>  
-        /// <param name="Employe"></param>  
-        /// <returns></returns>  
+
+  
         public string Insert_Employee(Employee Employe)
         {
             if (Employe != null)
@@ -60,11 +50,8 @@ namespace Routes.Controllers
                 return "Employee Not Inserted! Try Again";
             }
         }
-        /// <summary>  
-        /// Delete Employee Information  
-        /// </summary>  
-        /// <param name="Emp"></param>  
-        /// <returns></returns>  
+
+
         public string Delete_Employee(Employee Emp)
         {
             if (Emp != null)
@@ -78,7 +65,7 @@ namespace Routes.Controllers
                         Obj.Employee.Remove(Emp);
                     }
                     Obj.SaveChanges();
-                    return "Employee Deleted Successfully";
+                    return "Treballador borrat correctament"; 
                 }
             }
             else
@@ -86,11 +73,8 @@ namespace Routes.Controllers
                 return "Employee Not Deleted! Try Again";
             }
         }
-        /// <summary>  
-        /// Update Employee Information  
-        /// </summary>  
-        /// <param name="Emp"></param>  
-        /// <returns></returns>  
+
+ 
         public string Update_Employee(Employee Emp)
         {
             if (Emp != null)
