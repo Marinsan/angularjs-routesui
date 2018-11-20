@@ -17,7 +17,7 @@
     $scope.status = '  ';
     $scope.customFullscreen = true;
 
-    $scope.showAdvanced_create_taula = function (ev) {
+    $scope.showAdvanced_create_taula = function (Emp, ev) {
         $mdDialog.show({
             controller: CreateDialogController,
             templateUrl: 'templates/dialogs/dialog-create.html',
@@ -40,5 +40,6 @@
         $scope.answer = function (answer) {
             $mdDialog.hide(answer);
         };
+
     }
 });

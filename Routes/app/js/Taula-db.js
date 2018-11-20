@@ -70,7 +70,7 @@ app.controller("TaulaController", function ($scope, $http, $interval) {
                 $mdToast.show({
                     hideDelay: 3000,
                     position: 'top right',
-                    templateUrl: 'templates/snackbars/snackbar-error.html'
+                    templateUrl: 'templates/snackbar/snackbar-error.html'
                 });
             };
             $scope.closeToast = function () {
@@ -96,13 +96,46 @@ app.controller("TaulaController", function ($scope, $http, $interval) {
         })
     };
 
+
+
+    
+    //This variable is used to store the original values.
+    $scope.EditItem = {};
+
+    //Editing an existing record.
+    $scope.EditEmp = function (Emp) {
+        //Setting EditMode to TRUE makes the TextBoxes visible for the row.
+        $scope.Employe[Emp].EditMode = true;
+
+        //The original values are saved in the variable to handle Cancel case.
+        $scope.EditItem.EmpName = $scope.Employe[Emp].EmpName;
+        $scope.EditItem.EmpCity = $scope.Employe[Emp].EmpCity;
+        $scope.EditItem.EmpAge = $scope.Employe[Emp].EmpAge;
+    };
+
+    //Cancelling an Edit.
+    $scope.CancelEmp = function (Emp) {
+        // The original values are restored back into the Customers Array.
+        $scope.Employe[Emp].Name = $scope.EditItem.Name;
+        $scope.Employe[Emp].Country = $scope.EditItem.Country;
+
+        //Setting EditMode to FALSE hides the TextBoxes for the row.
+        $scope.Employe[Emp].EditMode = false;
+        $scope.EditItem = {};
+    };
+
+    //Updating an existing record to database.
     $scope.UpdateEmp = function (Emp) {
-        document.getElementById("EmpID_").value = Emp.Emp_Id;
-        $scope.EmpName = Emp.Emp_Name;
-        $scope.EmpCity = Emp.Emp_City;
-        $scope.EmpAge = Emp.Emp_Age;
-        document.getElementById("btnSave").setAttribute("value", "Update");
-        document.getElementById("btnSave").style.backgroundColor = "Yellow";
-        document.getElementById("spn").innerHTML = "Update Employee Information";
-    }
+        var employee = $scope.Employe[Emp];
+        var post = $http({
+            method: "POST",
+            url: "http://localhost:52188/Employee/Delete_Employee",
+            data: '{employee:' + JSON.stringify(employee) + '}',
+            dataType: 'json',
+        });
+        post.success(function (data, status) {
+            //Setting EditMode to FALSE hides the TextBoxes for the row.
+            employee.EditMode = false;
+        });
+    };
 })

@@ -105,6 +105,11 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: 'templates/todo.html',
 
     })
+    .state('Customers', {
+        url: '/Customers',
+        templateUrl: 'templates/data-db/data-customers.html',
+
+    })
 
 });
 

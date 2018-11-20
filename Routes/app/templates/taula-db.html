@@ -43,18 +43,24 @@
                     <tr>
                         <td>{{Emp.Emp_Id}}</td>
                         <td>
+                            <span ng-hide="m.EditMode">{{m.Emp_Name}}</span>
                             {{Emp.Emp_Name}}
                         </td>
                         <td>
+                            <span ng-hide="m.EditMode">{{m.Emp_City}}</span>
                             {{Emp.Emp_City}}
                         </td>
                         <td>
+                            <span ng-hide="m.EditMode">{{m.Emp_Age}}</span>
                             {{Emp.Emp_Age}}
                         </td>
                         <td>
-                            <md-button class="md-icon-button md-warn" value="Delete" ng-controller="DialogEmployeeDeleteController" ng-click="showAdvanced_delete_taula($event)">
-                                <md-icon title="Eliminar" md-svg-icon="img/icons/delete.svg"></md-icon>
-                            </md-button>
+                            <a class="Edit" href="javascript:;" ng-hide="m.EditMode" ng-click="EditEmp($Emp)">Edit</a>
+                            <a class="Update" href="javascript:;" ng-show="m.EditMode" ng-click="UpdateEmp($Emp)">Update</a>
+                             <!-- <md-button class="md-icon-button md-warn" value="Delete" ng-controller="DialogEmployeeDeleteController" ng-click="showAdvanced_delete_taula($event, Emp)">-->
+                                <md-button class="md-icon-button md-warn" value="Delete" ng-click="DeleteEmp(Emp)">
+                                    <md-icon title="Eliminar" md-svg-icon="img/icons/delete.svg"></md-icon>
+                                </md-button>
                             <md-button ng-click="UpdateEmp(Emp)" class="md-icon-button">
                                 <md-icon title="Editar" md-svg-icon="img/icons/edit.svg"></md-icon>
                             </md-button>

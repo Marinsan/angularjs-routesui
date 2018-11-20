@@ -1,6 +1,6 @@
-﻿<div ng-controller="TaulaController" ng-init="GetAllData()">
-    <md-dialog>
-        <form ng-cloak>
+﻿<div>
+    <md-dialog ng-controller="DialogEmployeeDeleteController">
+        <form>
             <md-toolbar>
                 <div class="md-toolbar-tools">
                     <h2>Eliminar</h2>
@@ -25,7 +25,7 @@
                 <md-button ng-click="cancel()">
                     No
                 </md-button>
-                <md-button ng-click="DeleteEmp(Emp)">
+                <md-button value="delete" ng-click="DeleteEmp(Emp)">
                     Si
                 </md-button>
             </md-dialog-actions>

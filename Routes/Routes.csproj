@@ -154,6 +154,7 @@
   <ItemGroup>
     <Content Include="app\css\app.css" />
     <Content Include="app\css\app.animations.css" />
+    <Content Include="app\js\Customers-db.js" />
     <Content Include="app\js\Snackbars.js" />
     <Content Include="app\lib\core\checkmark.filter.js" />
     <Content Include="app\lib\core\checkmark.filter.spec.js" />
@@ -324,6 +325,7 @@
     <Content Include="app\lib\angular-ngtable\ng-table.min.css" />
     <Content Include="app\lib\angular-ngtable\ng-table.min.js" />
     <Content Include="app\templates\contact.html" />
+    <Content Include="app\templates\data-db\data-customers.html" />
     <Content Include="app\templates\data-devextrem\data-grid-api.html" />
     <Content Include="app\templates\data-devextrem\data-grid.html" />
     <Content Include="app\templates\dialogs\dialog-access.html" />
@@ -345,6 +347,10 @@
     <Content Include="app\templates\snackbar\snackbar-enviat.html" />
     <Content Include="app\templates\todo.html" />
     <Content Include="app\templates\user\login.html" />
+    <Content Include="App_Data\Customers.mdf" />
+    <Content Include="App_Data\Customers_log.ldf">
+      <DependentUpon>Customers.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\Employees.mdf" />
     <Content Include="App_Data\Employees_log.ldf">
       <DependentUpon>Employees.mdf</DependentUpon>
@@ -410,6 +416,16 @@
     <Content Include="Global.asax" />
     <Content Include="js\dx.webapi.client.js" />
     <Content Include="js\dx.webapi.client.oauth.complete.js" />
+    <Content Include="Models\Customers.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Customers.edmx</DependentUpon>
+      <LastGenOutput>Customers.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Customers.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Customers.edmx</DependentUpon>
+      <LastGenOutput>Customers1.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\Demo.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Demo.edmx</DependentUpon>
@@ -1235,6 +1251,13 @@
     <Content Include="scripts\i18n\angular-locale_zh.js" />
     <Content Include="scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="scripts\i18n\angular-locale_zu.js" />
+    <EntityDeploy Include="Models\Customers.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Customers.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Customers.edmx.diagram">
+      <DependentUpon>Customers.edmx</DependentUpon>
+    </Content>
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
@@ -1323,8 +1346,27 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Customers.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customers.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Customers.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customers.cs">
+      <DependentUpon>Customers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Customers.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customers1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Customers.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Demo.Context.cs">
       <AutoGen>True</AutoGen>
@@ -1345,10 +1387,10 @@
       <DependentUpon>Demo.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="scripts\EmployeeController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <Folder Include="views\Customers\" />
     <Folder Include="views\Employee\" />
   </ItemGroup>
   <ItemGroup>
