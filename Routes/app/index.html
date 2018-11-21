@@ -62,8 +62,6 @@
 
     <!-- Scripts Propietaris -->
     <script src="js/app.js"></script>
-    <script src="js/auth/login.js"></script>
-    <script src="js/auth/authenticate.js"></script>
     <script src="js/navbar.js"></script>
     <script src="js/data-devextrem/data-grid.js"></script>
     <script src="js/data-devextrem/data.js"></script>
@@ -77,13 +75,15 @@
     <script src="js/dialogs-db-treballadors/DialogDelete.js"></script>
     <script src="js/Customers-db.js"></script>
 
-    
+    <!--Login Controlador db-->
+    <script src="js/auth/LoginCtrl.js"></script>
+    <script src="js/auth/Service.js"></script>
 
 </head>
 <body ng-app="routerApp">
 
     <div>
-        <nav ng-include="'templates/navbar.html'" ng-if="location.path() !== '/login'"></nav>
+        <nav ng-include="'templates/navbar.html'" ng-if="location.path() !== '/logindb'"></nav>
         <div layout layout-align="center center">
           
             <div ui-view></div>

@@ -2,7 +2,7 @@
 
 routerApp.config(function ($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/Logindb');
 
     $stateProvider
 
@@ -110,6 +110,11 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: 'templates/data-db/data-customers.cshtml',
 
     })
+    .state('LoginDB', {
+        url: '/logindb',
+        templateUrl: 'templates/user/Login-db.html',
+
+    })
 
 });
 
@@ -123,8 +128,8 @@ routerApp.run(['$rootScope', '$location', '$cookieStore', '$http',
 
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
 
-            if ($location.path() !== '/login' && !$rootScope.globals.currentUser) {
-                $location.path('/login');
+            if ($location.path() !== '/logindb' && !$rootScope.globals.currentUser) {
+                $location.path('/logindb');
             }
         });
     }
