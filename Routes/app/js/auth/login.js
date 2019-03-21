@@ -15,10 +15,6 @@
 
 angular.module('routerApp')
 
-    .controller('showUserController', function ($scope) {
-        $scope.username = 'admin';
-    })
-
   .controller('LoginController', function ($scope, $state, $rootScope, AuthenticationService, $mdToast, $mdDialog) {
 
       var vm = this;
@@ -48,13 +44,6 @@ angular.module('routerApp')
                   })
               }
           });
-      };
-
-      vm.reset = function () {
-          vm.loginObj.username = "";
-          vm.loginObj.password = "";
-          vm.error = "";
-          vm.loginError = false;
       };
 
   });

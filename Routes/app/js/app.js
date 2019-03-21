@@ -2,19 +2,20 @@
 
 routerApp.config(function ($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/Logindb');
+     $urlRouterProvider.otherwise('/logindb');
 
-    $stateProvider
+     $stateProvider
 
     
       // Vistes del routeui
 
-        .state('login', {
-            url: '/login',
-            templateUrl: 'templates/user/login.html',
-            controller: 'LoginController as vm',
-            
-        })
+         // Antic Login
+
+   //     .state('login', {
+   //         url: '/login',
+   //         templateUrl: 'templates/user/login.html',
+   //         controller: 'LoginController as vm',    
+   //     })
     
         .state('phone', {
             url: '/phone',
@@ -127,12 +128,13 @@ routerApp.run(['$rootScope', '$location', '$cookieStore', '$http',
         }
 
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
-
-            if ($location.path() !== '/logindb' && !$rootScope.globals.currentUser) {
-                $location.path('/logindb');
-            }
-        });
-    }
+        
+            //    if ($location.path() !== '/logindb' && !$rootScope.globals.currentUser) {
+            //         $location.path('/logindb');
+            //  }
+            //  });
+        })
+        }
 ]);
 
 routerApp.run(function ($rootScope, $location) {
