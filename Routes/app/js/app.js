@@ -123,18 +123,22 @@ routerApp.run(['$rootScope', '$location', '$cookieStore', '$http',
     function ($rootScope, $location, $cookieStore, $http) {
 
         $rootScope.globals = $cookieStore.get('globals') || {};
+
         if ($rootScope.globals.currentUser) {
             $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata;
         }
 
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
-        
-            //    if ($location.path() !== '/logindb' && !$rootScope.globals.currentUser) {
-            //         $location.path('/logindb');
-            //  }
-            //  });
+
+            // comentat ja que amb el nou login no actua correctament
+
+        //    if ($location.path() !== '/logindb' && !$rootScope.globals.currentUser) {
+        //        $location.path('/logindb');
+        //    }
         })
-        }
+  
+
+    }
 ]);
 
 routerApp.run(function ($rootScope, $location) {

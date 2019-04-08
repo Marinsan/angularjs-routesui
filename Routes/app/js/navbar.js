@@ -29,17 +29,8 @@
     function PanelProviderCtrl($mdPanel) {
 
         this.navigation = {
-            name: 'navigation',
-            items: [
-              'Home',
-              'About',
-              'Contact'
-            ]
+            name: 'navigation'
         };
-
-        $mdPanel.newPanelGroup('menus', {
-            maxOpen: 2
-        });
 
         this.showMenu = function ($event, menu) {
 

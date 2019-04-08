@@ -1,0 +1,29 @@
+﻿<div layout="column" layout-align="center center" style="height: 100%;">
+    <form name="LoginForm" novalidate>
+        <div layout="column">
+            <md-input-container>
+                <label>Usuario</label>
+                <input type="text" name="Usuario" ng-model="Model.username" ng-trim="false" maxlength="50" required
+                       style="text-align:center;" ng-enter="logIn(LoginForm);" />
+            </md-input-container>
+
+            <md-input-container>
+                <label>Contraseña</label>
+                <input type="password" name="password" ng-model="Model.password" ng-trim="false" maxlength="50" required
+                       style="text-align:center;" ng-enter="logIn(LoginForm);" />
+            </md-input-container>
+
+            <md-input-container>
+                
+                    <md-select ng-model="Model.sede" class="select-long" placeholder="Sede" required ng-enter="logIn(LoginForm);">
+                        <md-option ng-repeat="sede in sedes" ng-value="sede" ng-model="Model.sede">
+                            {{sede.descripcion}}
+                        </md-option>
+                    </md-select>
+                
+            </md-input-container>
+
+            <md-button class="md-raised  md-primary" ng-disabled="!Model.username || !Model.password || !Model.sede" ng-click="logIn(LoginForm);">Entrar</md-button>
+        </div>
+    </form>
+</div>

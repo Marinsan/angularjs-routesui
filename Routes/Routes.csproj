@@ -157,6 +157,7 @@
     <Content Include="app\js\auth\LoginCtrl.js" />
     <Content Include="app\js\auth\Service.js" />
     <Content Include="app\js\Customers-db.js" />
+    <Content Include="app\js\phones\Phones.js" />
     <Content Include="app\js\Snackbars.js" />
     <Content Include="app\lib\core\checkmark.filter.js" />
     <Content Include="app\lib\core\checkmark.filter.spec.js" />
@@ -1291,6 +1292,7 @@
     <Content Include="scripts\jquery.validate.unobtrusive.js" />
     <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="Serveis\ServeiTelefons.js" />
     <Content Include="views\dxconfirmexternal.js" />
     <Content Include="views\dxregister.js" />
     <Content Include="views\dxsignin.dxview" />
